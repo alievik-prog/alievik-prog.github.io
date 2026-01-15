@@ -15,9 +15,17 @@ color:#fff;
 min-height:100vh;
 overflow-x:hidden;
 background:#020617;
+top:0!important;
 }
 
-/* Video background */
+/* Hide Google top bar */
+.goog-te-banner-frame.skiptranslate,
+.goog-te-balloon-frame,
+#goog-gt-tt{
+display:none!important;
+}
+
+/* Video */
 .video-bg{
 position:fixed;
 top:50%;
@@ -31,33 +39,11 @@ z-index:-2;
 filter:brightness(1.1) contrast(1.1);
 }
 
-/* Dark overlay */
 .overlay{
 position:fixed;
 inset:0;
 background:linear-gradient(rgba(2,6,23,.45),rgba(2,6,23,.65));
 z-index:-1;
-}
-
-/* Language box */
-#lang-box{
-position:fixed;
-top:15px;
-right:15px;
-z-index:9999;
-background:rgba(5,15,40,.7);
-padding:8px 12px;
-border-radius:12px;
-border:1px solid #3b82ff;
-backdrop-filter:blur(8px);
-}
-
-.goog-te-combo{
-background:#0b1b40;
-color:white;
-border-radius:6px;
-border:1px solid #3b82ff;
-padding:6px;
 }
 
 /* Layout */
@@ -68,17 +54,8 @@ padding:25px 16px;
 text-align:center;
 }
 
-.logo{
-font-size:40px;
-font-weight:700;
-}
-
-.slogan{
-font-size:20px;
-font-weight:600;
-color:#b7c8ff;
-margin-bottom:8px;
-}
+.logo{font-size:40px;font-weight:700}
+.slogan{font-size:20px;font-weight:600;color:#b7c8ff;margin-bottom:8px}
 
 /* Pricing */
 .pricing{
@@ -112,7 +89,6 @@ background:rgba(20,40,90,.85);
 
 .card h3{margin-bottom:8px;font-size:16px}
 .price{font-size:22px;font-weight:700;margin-bottom:10px}
-
 .features{list-style:none;margin-bottom:12px}
 .features li{margin:4px 0;color:#cdd6ff;font-size:13px}
 
@@ -133,29 +109,29 @@ box-shadow:0 0 25px rgba(80,140,255,.8);
 }
 
 /* Install */
-.install{
-margin-top:28px;
-}
-
+.install{margin-top:28px}
 .install h2{font-size:22px;margin-bottom:6px}
 .install p{color:#aab;margin-bottom:14px;font-size:13px}
 
+/* Platforms in one row */
 .platforms{
 display:flex;
-gap:10px;
+gap:8px;
 justify-content:center;
-flex-wrap:wrap;
+flex-wrap:nowrap;
+overflow-x:auto;
 }
 
 .platforms a{
 background:#0b1b40;
 border:1px solid #2b7bff;
-padding:8px 14px;
-border-radius:10px;
+padding:6px 10px;
+border-radius:8px;
 color:white;
 text-decoration:none;
 font-weight:600;
-font-size:12px;
+font-size:11px;
+white-space:nowrap;
 transition:.3s;
 }
 
@@ -164,8 +140,25 @@ background:#1e3a8a;
 box-shadow:0 0 20px rgba(80,140,255,.8);
 }
 
+/* Language selector */
+#lang-box{
+margin-top:20px;
+display:flex;
+justify-content:center;
+}
+
+.goog-te-combo{
+background:#0b1b40;
+color:white;
+border-radius:8px;
+border:1px solid #3b82ff;
+padding:6px;
+}
+
+/* Footer */
 footer{margin-top:20px;color:#667;font-size:12px}
 
+/* Mobile */
 @media(max-width:768px){
 .card{width:48%}
 .logo{font-size:32px}
@@ -175,8 +168,6 @@ footer{margin-top:20px;color:#667;font-size:12px}
 </head>
 
 <body>
-
-<div id="lang-box"></div>
 
 <video class="video-bg" autoplay muted loop playsinline>
 <source src="planeta.webm" type="video/webm">
@@ -216,12 +207,15 @@ footer{margin-top:20px;color:#667;font-size:12px}
 <a href="https://apps.apple.com/us/app/v2raytun/id6476628951?platform=ipad">iPad</a>
 </div>
 
+<div id="lang-box"></div>
+
 <p style="margin-top:16px;font-size:12px;">
 Официальный сайт V2RayTun:<br>
 <a href="https://v2raytun.com/" target="_blank" style="color:#4da3ff;">
 https://v2raytun.com
 </a>
 </p>
+
 </div>
 
 <footer>© 2026 VPN</footer>
@@ -237,7 +231,6 @@ function googleTranslateElementInit() {
   }, 'lang-box');
 }
 </script>
-
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </body>
