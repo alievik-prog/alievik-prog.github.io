@@ -29,12 +29,10 @@ header{text-align:center;margin-bottom:6px}
 header h1{font-size:26px;font-weight:600}
 header .vpn{font-size:32px;font-weight:800;color:#4dc2ff}
 
-.cards{
+.top-cards{
 display:flex;
 gap:10px;
 margin-top:6px;
-flex:1;
-align-items:flex-start;
 }
 
 .card{
@@ -44,6 +42,11 @@ border-radius:14px;
 padding:10px;
 border:1px solid rgba(120,170,255,.3);
 text-align:center;
+}
+
+.full{
+margin-top:8px;
+width:100%;
 }
 
 .card h3{font-size:14px;margin-bottom:4px}
@@ -93,7 +96,7 @@ font-size:12px;
 
 .install{
 text-align:center;
-margin-top:6px;
+margin-top:auto;
 }
 
 .install h4{
@@ -130,7 +133,7 @@ text-decoration:none;
 <div class="vpn">Подключи наш VPN</div>
 </header>
 
-<div class="cards">
+<div class="top-cards">
 
 <div class="card">
 <h3>Базовый</h3>
@@ -152,14 +155,14 @@ text-decoration:none;
 <a class="connect" href="https://wa.me/966594630551">Подключить</a>
 </div>
 
-<div class="card">
-<h3>Оставить заявку</h3>
+</div>
+
+<div class="card full">
+<h3>Оставить заявку на подключение</h3>
 <input placeholder="Email">
 <input placeholder="WhatsApp">
 <input placeholder="Telegram">
 <button>Отправить</button>
-</div>
-
 </div>
 
 <div class="install">
