@@ -55,16 +55,25 @@ list-style:none;
 }
 .card li{margin:3px 0}
 
-.button{
-display:block;
+.card input{
+width:100%;
+padding:8px;
+margin:4px 0;
+border-radius:8px;
+border:none;
+font-size:11px;
+}
+
+.card button{
 margin-top:6px;
 padding:8px;
-font-size:12px;
+width:100%;
 border-radius:10px;
+border:none;
 background:#2b7bff;
 color:white;
-text-decoration:none;
 font-weight:700;
+font-size:12px;
 }
 
 .install{
@@ -94,68 +103,6 @@ border:1px solid #2b7bff;
 color:white;
 text-decoration:none;
 }
-
-.request{
-margin-top:8px;
-background:#ff2d55;
-padding:10px;
-border-radius:14px;
-text-align:center;
-font-size:14px;
-font-weight:700;
-cursor:pointer;
-}
-
-.modal{
-position:fixed;
-inset:0;
-background:rgba(0,0,0,.85);
-display:none;
-align-items:center;
-justify-content:center;
-z-index:10;
-}
-
-.modal.active{display:flex}
-
-.form{
-background:#0b1b40;
-padding:20px;
-border-radius:16px;
-width:90%;
-max-width:320px;
-}
-
-.form h3{text-align:center;font-size:16px;margin-bottom:4px}
-.form p{text-align:center;font-size:12px;color:#9fb6ff;margin-bottom:10px}
-
-.form input{
-width:100%;
-padding:10px;
-margin:5px 0;
-border-radius:10px;
-border:none;
-font-size:13px;
-}
-
-.form button{
-width:100%;
-padding:10px;
-background:#2b7bff;
-border:none;
-border-radius:12px;
-font-weight:700;
-color:white;
-margin-top:8px;
-}
-
-.close{
-text-align:center;
-margin-top:6px;
-font-size:12px;
-color:#9fb6ff;
-cursor:pointer;
-}
 </style>
 </head>
 
@@ -169,15 +116,14 @@ cursor:pointer;
 </header>
 
 <div class="cards">
+
 <div class="card">
 <h3>Базовый</h3>
 <div class="price">100 ₽</div>
 <ul>
 <li>Скорость до 100 Мбит</li>
-<li>Все устройства</li>
-<li>1 ключ / 1 устройство</li>
+<li>Один ключ – одно устройство</li>
 </ul>
-<a class="button" href="https://wa.me/966594630551">Подключить</a>
 </div>
 
 <div class="card">
@@ -185,15 +131,22 @@ cursor:pointer;
 <div class="price">200 ₽</div>
 <ul>
 <li>Скорость до 200 Мбит</li>
-<li>До 3 устройств</li>
-<li>Все устройства</li>
+<li>Один ключ – три устройства</li>
 </ul>
-<a class="button" href="https://wa.me/966594630551">Подключить</a>
 </div>
+
+<div class="card">
+<h3>Оставить заявку</h3>
+<input placeholder="Email">
+<input placeholder="WhatsApp">
+<input placeholder="Telegram">
+<button>Отправить</button>
+</div>
+
 </div>
 
 <div class="install">
-<h4>Установка</h4>
+<h4>Установка приложения</h4>
 <div class="platforms">
 <a href="https://play.google.com/store/apps/details?id=com.v2raytun.android">Android</a>
 <a href="https://apps.apple.com/us/app/v2raytun/id6476628951">iPhone</a>
@@ -201,42 +154,7 @@ cursor:pointer;
 </div>
 </div>
 
-<div class="request" onclick="openForm()">Оставить заявку</div>
-
 </div>
-
-<div class="modal" id="modal">
-<div class="form">
-<h3>Заявка на подключение</h3>
-<p>Укажите любой удобный способ связи</p>
-<input id="email" placeholder="Email">
-<input id="whatsapp" placeholder="WhatsApp">
-<input id="telegram" placeholder="Telegram">
-<button onclick="sendLead()">Отправить</button>
-<div class="close" onclick="closeForm()">Закрыть</div>
-</div>
-</div>
-
-<script>
-const BOT_TOKEN="ТВОЙ_ТОКЕН";
-const CHAT_ID="-1003649594718";
-
-function openForm(){modal.classList.add("active")}
-function closeForm(){modal.classList.remove("active")}
-
-function sendLead(){
-fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,{
-method:"POST",
-headers:{"Content-Type":"application/json"},
-body:JSON.stringify({
-chat_id:CHAT_ID,
-text:`Новая заявка\nEmail: ${email.value}\nWhatsApp: ${whatsapp.value}\nTelegram: ${telegram.value}`
-})
-});
-alert("Заявка отправлена");
-closeForm();
-}
-</script>
 
 </body>
 </html>
