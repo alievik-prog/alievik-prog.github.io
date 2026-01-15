@@ -1,200 +1,71 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-<meta charset="UTF-8">
-<title>VPN</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-
-<style>
-*{box-sizing:border-box;margin:0;padding:0;font-family:Inter,sans-serif}
-body{background:#020617;color:white;overflow-x:hidden}
-
-/* Video */
-.video-bg{
-position:fixed;top:50%;left:50%;
-width:115%;height:auto;min-height:115%;
-transform:translate(-50%,-50%);
-object-fit:cover;z-index:-2;
-filter:brightness(1.1) contrast(1.1);
-}
-.overlay{
-position:fixed;inset:0;
-background:linear-gradient(rgba(2,6,23,.45),rgba(2,6,23,.65));
-z-index:-1;
-}
-
-.container{max-width:1200px;margin:auto;padding:20px;text-align:center}
-.logo{font-size:40px;font-weight:700}
-.slogan{font-size:20px;color:#b7c8ff;margin-bottom:8px}
-
-.pricing{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-top:20px}
+/* === Compact cards === */
+.pricing{gap:10px}
 .card{
-background:rgba(10,20,60,.75);
-border-radius:14px;padding:16px;width:240px;
-border:1px solid rgba(120,170,255,.3);
-box-shadow:0 0 25px rgba(70,120,255,.2)
+width:210px;
+padding:12px;
+transition:0.25s;
 }
-.card.highlight{border:2px solid #3b82ff}
-.card h3{font-size:16px}
-.price{font-size:22px;font-weight:700}
-.features{list-style:none;font-size:13px;color:#cdd6ff}
+
+/* hover for cards */
+.card:hover{
+transform:scale(1.05);
+background:rgba(20,40,90,.9);
+box-shadow:0 0 30px rgba(80,140,255,.6);
+}
+
+/* instruction zoom */
+.pricing .card:last-child:hover{
+transform:scale(1.08);
+}
+
+/* buttons hover */
 .button{
-display:block;background:#3b82ff;padding:10px;border-radius:10px;
-color:white;text-decoration:none;margin-top:10px;cursor:pointer
+transition:0.2s;
+}
+.button:hover{
+background:#60a5ff;
+transform:scale(1.05);
+box-shadow:0 0 15px rgba(80,140,255,.8);
 }
 
-.install{margin-top:30px}
-.platforms{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+/* platforms hover */
 .platforms a{
-background:#0b1b40;border:1px solid #3b82ff;padding:6px 10px;
-border-radius:8px;color:white;font-size:11px;text-decoration:none
+transition:0.2s;
+}
+.platforms a:hover{
+background:#1e40af;
+transform:scale(1.08);
+box-shadow:0 0 12px rgba(90,150,255,.8);
 }
 
-.lang-bar{display:flex;gap:10px;justify-content:center;margin-top:20px}
+/* language buttons hover */
 .lang-btn{
-background:#0b1b40;border:1px solid #3b82ff;
-padding:6px 10px;border-radius:8px;font-size:12px;
-cursor:pointer;color:white
+transition:0.2s;
 }
-.lang-btn.active{background:#3b82ff}
-
-footer{margin-top:20px;color:#667;font-size:12px}
-
-/* Modal */
-.modal{
-position:fixed;inset:0;background:rgba(0,0,0,.7);
-display:none;align-items:center;justify-content:center;z-index:10
+.lang-btn:hover{
+background:#1e40af;
+transform:scale(1.1);
+box-shadow:0 0 10px rgba(90,150,255,.8);
 }
+
+/* QR modal zoom */
 .modal-content{
-background:#0b1b40;padding:20px;border-radius:12px;
-max-width:400px;width:90%;text-align:center
+animation:qrzoom .25s ease;
 }
-.modal img{width:100%;border-radius:10px}
-.copy-btn{margin-top:10px;background:#3b82ff;border:none;color:white;padding:8px 12px;border-radius:8px;cursor:pointer}
+.modal img{
+cursor:pointer;
+transition:.25s;
+}
+.modal img:hover{
+transform:scale(1.08);
+box-shadow:0 0 25px rgba(120,180,255,.9);
+}
+@keyframes qrzoom{
+from{transform:scale(.7);opacity:0}
+to{transform:scale(1);opacity:1}
+}
 
+/* mobile tighter */
 @media(max-width:768px){
-.card{width:48%}
+.card{width:47%}
 }
-</style>
-</head>
-
-<body>
-
-<video class="video-bg" autoplay muted loop playsinline>
-<source src="planeta.webm" type="video/webm">
-</video>
-<div class="overlay"></div>
-
-<div class="container">
-
-<div class="slogan" data-t="slogan">Всегда Будь На Связи</div>
-<div class="logo">VPN</div>
-
-<div class="pricing">
-
-<div class="card">
-<h3 data-t="basic">Базовый</h3>
-<div class="price">100 ₽ / мес</div>
-<ul class="features"><li data-t="speed">Высокая скорость</li></ul>
-<a class="button" href="https://wa.me/966594630551" data-t="buy">Купить</a>
-</div>
-
-<div class="card highlight">
-<h3 data-t="premium">Премиум</h3>
-<div class="price">200 ₽ / мес</div>
-<ul class="features"><li data-t="maxspeed">Максимальная скорость</li></ul>
-<a class="button" href="https://wa.me/966594630551" data-t="buy">Купить</a>
-</div>
-
-<div class="card">
-<h3 data-t="free">Бесплатный ключ</h3>
-<div class="price">24 часа</div>
-<ul class="features"><li data-t="freeText">Базовый доступ</li></ul>
-<div class="button" onclick="copyFreeKey()" data-t="get">Скопировать ключ</div>
-<div class="button" onclick="openQR()">QR-код</div>
-</div>
-
-<div class="card">
-<h3 data-t="instruction">Инструкция</h3>
-<ul class="features" style="text-align:left;font-size:12px">
-<li>1. Скопируйте ключ</li>
-<li>2. Откройте V2RayTun</li>
-<li>3. Нажмите «+»</li>
-<li>4. Вставить из буфера</li>
-<li>5. OK → Разрешить</li>
-<li>6. Подключить</li>
-<li>7. Статус «Подключено»</li>
-</ul>
-</div>
-
-</div>
-
-<div class="install">
-<h2 data-t="install">Установка</h2>
-<p data-t="installText">Установите V2RayTun для активации ключа</p>
-
-<div class="platforms">
-<a href="https://play.google.com/store/apps/details?id=com.v2raytun.android">Android</a>
-<a href="https://apps.apple.com/us/app/v2raytun/id6476628951">iPhone</a>
-<a href="https://storage.v2raytun.com/v2RayTun_Setup.exe">Windows</a>
-<a href="https://apps.apple.com/us/app/v2raytun/id6476628951?platform=mac">Mac</a>
-<a href="https://apps.apple.com/us/app/v2raytun/id6476628951?platform=ipad">iPad</a>
-</div>
-
-<p style="margin-top:10px;font-size:12px;">
-Официальный сайт V2RayTun:
-<a href="https://v2raytun.com" style="color:#4da3ff">https://v2raytun.com</a>
-</p>
-</div>
-
-<div class="lang-bar">
-<div class="lang-btn active" onclick="setLang('ru')">RU</div>
-<div class="lang-btn" onclick="setLang('en')">EN</div>
-<div class="lang-btn" onclick="setLang('ar')">AR</div>
-<div class="lang-btn" onclick="setLang('hi')">HI</div>
-<div class="lang-btn" onclick="setLang('zh')">ZH</div>
-</div>
-
-<footer>© 2026 VPN</footer>
-</div>
-
-<!-- QR Modal -->
-<div class="modal" id="qrModal">
-<div class="modal-content">
-<h3>QR-код</h3>
-<img src="QR.png">
-<button class="copy-btn" onclick="closeQR()">Закрыть</button>
-</div>
-</div>
-
-<script>
-const FREE_KEY="vless://5905d0bd-32a0-4b5e-af09-cf800845b99f@171.22.30.27:344?type=tcp&encryption=none&security=reality&pbk=YT8-PMUMKvDA6wpho3YlMqk49kZH6EFT7O5lmdRXbHE&fp=chrome&sni=www.yandex.ru&sid=1124&spx=%2F&flow=xtls-rprx-vision#Нидерланды-NLD";
-
-function copyFreeKey(){
-navigator.clipboard.writeText(FREE_KEY);
-alert("Ключ скопирован");
-}
-
-function openQR(){document.getElementById("qrModal").style.display="flex"}
-function closeQR(){document.getElementById("qrModal").style.display="none"}
-</script>
-
-<!-- языки остаются как у тебя -->
-<script>
-const dict={
-ru:{slogan:"Всегда Будь На Связи",basic:"Базовый",premium:"Премиум",speed:"Высокая скорость",maxspeed:"Максимальная скорость",buy:"Купить",install:"Установка",installText:"Установите V2RayTun для активации ключа",free:"Бесплатный ключ",freeText:"Базовый доступ",get:"Скопировать ключ",instruction:"Инструкция"},
-en:{slogan:"Always stay connected",basic:"Basic",premium:"Premium",speed:"High speed",maxspeed:"Maximum speed",buy:"Buy",install:"Installation",installText:"Install V2RayTun to activate key",free:"Free key",freeText:"Basic access",get:"Copy key",instruction:"Instruction"},
-ar:{slogan:"ابقَ متصلاً دائمًا",basic:"أساسي",premium:"مميز",speed:"سرعة عالية",maxspeed:"أقصى سرعة",buy:"شراء",install:"التثبيت",installText:"ثبت V2RayTun لتفعيل المفتاح",free:"مفتاح مجاني",freeText:"وصول أساسي",get:"نسخ",instruction:"التعليمات"},
-hi:{slogan:"हमेशा जुड़े रहें",basic:"बेसिक",premium:"प्रीमियम",speed:"तेज़ गति",maxspeed:"अधिकतम गति",buy:"खरीदें",install:"इंस्टॉल",installText:"कुंजी सक्रिय करने के लिए V2RayTun इंस्टॉल करें",free:"मुफ़्त कुंजी",freeText:"बेसिक एक्सेस",get:"कॉपी करें",instruction:"निर्देश"},
-zh:{slogan:"始终保持连接",basic:"基础版",premium:"高级版",speed:"高速",maxspeed:"最高速度",buy:"购买",install:"安装",installText:"安装 V2RayTun 以激活密钥",free:"免费密钥",freeText:"基础访问",get:"复制",instruction:"说明"}
-}
-function setLang(l){
-document.querySelectorAll("[data-t]").forEach(el=>{
-el.textContent=dict[l][el.getAttribute("data-t")]
-})
-}
-</script>
-
-</body>
-</html>
