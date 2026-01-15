@@ -27,8 +27,8 @@ justify-content:space-between;
 }
 
 header{text-align:center}
-header h1{font-size:28px;font-weight:700}
-header p{color:#9fb6ff;font-size:13px}
+header h1{font-size:26px;font-weight:600}
+header .vpn{font-size:32px;font-weight:800;color:#4dc2ff}
 
 .cards{
 display:flex;
@@ -55,10 +55,24 @@ list-style:none;
 }
 .card li{margin:3px 0}
 
+.connect{
+display:block;
+margin-top:6px;
+padding:8px;
+font-size:12px;
+border-radius:10px;
+background:#2b7bff;
+color:white;
+text-decoration:none;
+font-weight:700;
+transition:.2s;
+}
+.connect:hover{background:#4dc2ff}
+
 .card input{
 width:100%;
-padding:8px;
-margin:4px 0;
+padding:7px;
+margin:3px 0;
 border-radius:8px;
 border:none;
 font-size:11px;
@@ -70,7 +84,7 @@ padding:8px;
 width:100%;
 border-radius:10px;
 border:none;
-background:#2b7bff;
+background:#ff2d55;
 color:white;
 font-weight:700;
 font-size:12px;
@@ -78,7 +92,7 @@ font-size:12px;
 
 .install{
 text-align:center;
-margin-top:8px;
+margin-top:6px;
 }
 
 .install h4{
@@ -111,8 +125,8 @@ text-decoration:none;
 <div class="app">
 
 <header>
-<h1>Подключи наш VPN</h1>
-<p>Всегда будь на связи</p>
+<h1>Будь всегда на связи</h1>
+<div class="vpn">Подключи наш VPN</div>
 </header>
 
 <div class="cards">
@@ -122,8 +136,9 @@ text-decoration:none;
 <div class="price">100 ₽</div>
 <ul>
 <li>Скорость до 100 Мбит</li>
-<li>Один ключ – одно устройство</li>
+<li>Один ключ — одно устройство</li>
 </ul>
+<a class="connect" href="https://wa.me/966594630551">Подключить</a>
 </div>
 
 <div class="card">
@@ -131,8 +146,9 @@ text-decoration:none;
 <div class="price">200 ₽</div>
 <ul>
 <li>Скорость до 200 Мбит</li>
-<li>Один ключ – три устройства</li>
+<li>Один ключ — три устройства</li>
 </ul>
+<a class="connect" href="https://wa.me/966594630551">Подключить</a>
 </div>
 
 <div class="card">
