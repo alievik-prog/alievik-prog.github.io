@@ -20,7 +20,6 @@ min-height:100vh;
 overflow:hidden;
 }
 
-/* Обёртка масштабирования */
 .scale-wrapper{
 transform: scale(1.5);
 transform-origin: top center;
@@ -28,7 +27,6 @@ width: 66.666%;
 margin: 0 auto;
 }
 
-/* Внутренний интерфейс */
 .app{
 max-width:390px;
 margin:auto;
@@ -69,7 +67,9 @@ color:white;
 font-size:11px;
 text-decoration:none;
 font-weight:700;
+transition:.2s;
 }
+.connect:hover{background:#4dc2ff}
 
 .wide{
 margin-top:6px;
@@ -162,10 +162,10 @@ text-decoration:none;
 
 <div class="wide">
 <h3>Оставить заявку на подключение</h3>
-<input placeholder="Email">
-<input placeholder="WhatsApp">
-<input placeholder="Telegram">
-<button>Отправить</button>
+<input id="email" placeholder="Email">
+<input id="whatsapp" placeholder="WhatsApp">
+<input id="telegram" placeholder="Telegram">
+<button onclick="sendLead()">Отправить</button>
 </div>
 
 <div class="install">
@@ -179,6 +179,34 @@ text-decoration:none;
 
 </div>
 </div>
+
+<script>
+const BOT_TOKEN = "ВСТАВЬ_СЮДА_СВОЙ_BOT_TOKEN";
+const CHAT_ID = "-1003649594718";
+
+function sendLead(){
+  const email = document.getElementById("email").value;
+  const whatsapp = document.getElementById("whatsapp").value;
+  const telegram = document.getElementById("telegram").value;
+
+  const text =
+    "Новая заявка\n" +
+    "Email: " + email + "\n" +
+    "WhatsApp: " + whatsapp + "\n" +
+    "Telegram: " + telegram;
+
+  fetch("https://api.telegram.org/bot" + BOT_TOKEN + "/sendMessage", {
+    method: "POST",
+    headers: {"Content-Type":"application/json"},
+    body: JSON.stringify({
+      chat_id: CHAT_ID,
+      text: text
+    })
+  });
+
+  alert("Заявка отправлена");
+}
+</script>
 
 </body>
 </html>
