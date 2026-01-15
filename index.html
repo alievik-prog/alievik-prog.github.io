@@ -1,218 +1,275 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8" />
 <title>VPN</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-
-<script src="https://unpkg.com/three@0.152.2/build/three.min.js"></script>
-<script src="https://unpkg.com/three-globe"></script>
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0;font-family:Inter,sans-serif}
 
-body,html{
-width:100%;
-height:100%;
-overflow:hidden;
-background:#020814;
-color:white
+html,body{height:100%;}
+
+body{
+  color:#fff;
+  overflow-x:hidden;
 }
 
-#globe{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-z-index:-1
+/* ===== Video background ===== */
+.hero{
+  position:relative;
+  min-height:100vh;
+  width:100%;
+  overflow:hidden;
 }
 
-.overlay{
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:radial-gradient(circle at center, rgba(0,0,0,.2), rgba(0,0,0,.9));
-z-index:0
+.hero video{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  min-width:100%;
+  min-height:100%;
+  width:auto;
+  height:auto;
+  object-fit:cover;
+  z-index:-2;
 }
 
+/* Dark overlay for readability */
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg, rgba(3,8,30,.75), rgba(3,8,30,.9));
+  z-index:-1;
+}
+
+/* ===== Layout ===== */
 .container{
-position:relative;
-z-index:1;
-max-width:1200px;
-margin:auto;
-padding:40px 20px;
-text-align:center
+  max-width:1200px;
+  margin:0 auto;
+  padding:40px 20px 80px;
+  text-align:center;
 }
 
+/* Header */
 header{
-margin-bottom:40px
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin-bottom:50px;
+}
+
+.logo{
+  font-size:28px;
+  font-weight:700;
+  letter-spacing:.08em;
+}
+
+/* Titles */
+h1{
+  font-size:56px;
+  margin-bottom:10px;
 }
 
 .slogan{
-font-size:32px;
-font-weight:700;
-margin-bottom:10px
-}
-
-h1{
-font-size:60px;
-margin-bottom:10px
+  font-size:28px;
+  font-weight:700;
+  margin-bottom:14px;
 }
 
 .subtitle{
-color:#9fb6ff;
-margin-bottom:50px
+  color:#9fb6ff;
+  margin-bottom:60px;
 }
 
+/* Pricing cards */
 .pricing{
-display:flex;
-gap:40px;
-justify-content:center;
-flex-wrap:wrap
+  display:flex;
+  gap:40px;
+  justify-content:center;
+  flex-wrap:wrap;
 }
 
 .card{
-background:rgba(10,20,60,.7);
-border-radius:18px;
-padding:35px;
-width:300px;
-border:1px solid rgba(120,170,255,.3);
-box-shadow:0 0 60px rgba(70,120,255,.25)
+  background:rgba(10,20,60,.65);
+  border-radius:18px;
+  padding:36px 34px 34px;
+  width:300px;
+  border:1px solid rgba(120,170,255,.35);
+  box-shadow:0 0 40px rgba(70,120,255,.12);
+  transition:.35s ease;
+  position:relative;
+}
+
+.card:hover{
+  transform:translateY(-10px) scale(1.02);
+  background:rgba(20,40,90,.95);
+  box-shadow:0 0 80px rgba(80,140,255,.45);
+  border-color:#4da3ff;
 }
 
 .card.highlight{
-border:2px solid #2b7bff;
-background:rgba(20,40,90,.9)
+  border:2px solid #2b7bff;
+  background:rgba(20,40,90,.9);
+}
+
+.card h3{
+  margin-bottom:20px;
+  font-size:24px;
 }
 
 .price{
-font-size:38px;
-font-weight:700;
-margin:20px 0
+  font-size:40px;
+  font-weight:700;
+  margin-bottom:24px;
 }
 
+.features{
+  list-style:none;
+  margin-bottom:30px;
+}
+
+.features li{
+  margin:12px 0;
+  color:#dbe5ff;
+}
+
+/* Buttons */
 .button{
-display:block;
-margin-top:20px;
-background:linear-gradient(90deg,#1a6dff,#2fa4ff);
-padding:16px;
-border-radius:12px;
-color:white;
-text-decoration:none;
-font-weight:700;
-transition:.25s
+  display:block;
+  text-decoration:none;
+  background:linear-gradient(90deg,#1a6dff,#2fa4ff);
+  padding:16px;
+  border-radius:12px;
+  color:white;
+  font-weight:700;
+  transition:.25s ease;
+  box-shadow:0 0 0 rgba(0,0,0,0);
 }
 
 .button:hover{
-box-shadow:0 0 30px rgba(80,150,255,1);
-transform:scale(1.05)
+  background:linear-gradient(90deg,#2fa4ff,#5bb6ff);
+  box-shadow:0 0 25px rgba(80,140,255,.9);
+  transform:translateY(-2px);
 }
 
+/* Install section */
 .install{
-margin-top:80px
+  margin-top:90px;
+}
+
+.install h2{
+  font-size:34px;
+  margin-bottom:14px;
+}
+
+.install p{
+  color:#aab;
+  margin-bottom:36px;
 }
 
 .platforms{
-display:flex;
-gap:20px;
-justify-content:center;
-flex-wrap:wrap
+  display:flex;
+  gap:20px;
+  justify-content:center;
+  flex-wrap:wrap;
 }
 
 .platforms a{
-background:#0b1b40;
-border:1px solid #2b7bff;
-padding:18px 28px;
-border-radius:14px;
-color:white;
-text-decoration:none;
-font-weight:600;
-transition:.25s
+  background:#0b1b40;
+  border:1px solid #2b7bff;
+  padding:18px 28px;
+  border-radius:14px;
+  color:white;
+  text-decoration:none;
+  font-weight:600;
+  box-shadow:0 0 20px rgba(50,100,255,.25);
+  transition:.25s ease;
 }
 
 .platforms a:hover{
-background:#2b7bff;
-box-shadow:0 0 25px rgba(80,150,255,1)
+  background:#102b6b;
+  box-shadow:0 0 35px rgba(90,150,255,.9);
+  transform:translateY(-4px);
+}
+
+.footer{
+  margin-top:100px;
+  color:#778;
+  text-align:center;
 }
 </style>
 </head>
 
 <body>
 
-<div id="globe"></div>
-<div class="overlay"></div>
+<div class="hero">
+  <!-- VIDEO BACKGROUND -->
+  <video autoplay muted loop playsinline>
+    <source src="IMG_7762.MOV" type="video/mp4">
+  </video>
 
-<div class="container">
+  <div class="container">
 
-<header>
-<div class="slogan">Всегда Будь На Связи</div>
-<h1>VPN</h1>
-<p class="subtitle">Глобальная защищённая сеть без ограничений</p>
-</header>
+    <header>
+      <div class="logo">VPN</div>
+    </header>
 
-<div class="pricing">
-<div class="card">
-<h3>VPN Базовый</h3>
-<div class="price">100 ₽ / мес</div>
-<p>Высокая скорость</p>
-<a class="button" href="https://wa.me/966594630551">Купить</a>
+    <div class="slogan">Всегда Будь На Связи</div>
+    <h1>VPN</h1>
+    <p class="subtitle">
+      Безопасный VPN-доступ через V2RayTun для Android, iPhone, Windows и MacOS
+    </p>
+
+    <div class="pricing">
+
+      <div class="card">
+        <h3>VPN Базовый</h3>
+        <div class="price">100 ₽ / мес</div>
+        <ul class="features">
+          <li>Высокая скорость</li>
+        </ul>
+        <a class="button" href="https://wa.me/966594630551">Купить</a>
+      </div>
+
+      <div class="card highlight">
+        <h3>VPN Премиум</h3>
+        <div class="price">200 ₽ / мес</div>
+        <ul class="features">
+          <li>Максимальная скорость</li>
+        </ul>
+        <a class="button" href="https://wa.me/966594630551">Купить</a>
+      </div>
+
+    </div>
+
+    <div class="install">
+      <h2>Установка</h2>
+      <p>Установите V2RayTun для активации ключа</p>
+
+      <div class="platforms">
+        <a href="https://play.google.com/store/apps/details?id=com.v2raytun.android">Android</a>
+        <a href="https://apps.apple.com/us/app/v2raytun/id6476628951">iPhone</a>
+        <a href="https://storage.v2raytun.com/v2RayTun_Setup.exe">Windows</a>
+        <a href="https://apps.apple.com/us/app/v2raytun/id6476628951?platform=mac">MacOS</a>
+        <a href="https://apps.apple.com/us/app/v2raytun/id6476628951?platform=ipad">iPad</a>
+      </div>
+
+      <p style="margin-top:36px;">
+        Официальный сайт V2RayTun:
+        <a href="https://v2raytun.com/" target="_blank" style="color:#4da3ff;">
+          https://v2raytun.com
+        </a>
+      </p>
+    </div>
+
+    <div class="footer">© 2026 VPN</div>
+
+  </div>
 </div>
-
-<div class="card highlight">
-<h3>VPN Премиум</h3>
-<div class="price">200 ₽ / мес</div>
-<p>Максимальная скорость</p>
-<a class="button" href="https://wa.me/966594630551">Купить</a>
-</div>
-</div>
-
-<div class="install">
-<h2>Установка</h2>
-<p>Установите V2RayTun</p>
-<div class="platforms">
-<a href="https://play.google.com/store/apps/details?id=com.v2raytun.android">Android</a>
-<a href="https://apps.apple.com/us/app/v2raytun/id6476628951">iPhone</a>
-<a href="https://storage.v2raytun.com/v2RayTun_Setup.exe">Windows</a>
-<a href="https://apps.apple.com/us/app/v2raytun/id6476628951?platform=mac">macOS</a>
-<a href="https://apps.apple.com/us/app/v2raytun/id6476628951?platform=ipad">iPad</a>
-</div>
-</div>
-
-</div>
-
-<script>
-const Globe = new ThreeGlobe()
-.globeImageUrl('https://unpkg.com/three-globe/example/img/earth-dark.jpg')
-.bumpImageUrl('https://unpkg.com/three-globe/example/img/earth-topology.png')
-.pointsData([
-{lat:40, lng:-74},{lat:51, lng:0},{lat:35, lng:139},{lat:55, lng:37},{lat:48, lng:2},{lat:1,lng:103}
-])
-.pointColor(()=>'#4da3ff')
-.pointAltitude(0.03)
-.pointRadius(0.5);
-
-const scene = new THREE.Scene();
-scene.add(Globe);
-
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
-camera.position.z = 300;
-
-const renderer = new THREE.WebGLRenderer({alpha:true});
-renderer.setSize(window.innerWidth, window.innerHeight);
-document.getElementById('globe').appendChild(renderer.domElement);
-
-function animate(){
-requestAnimationFrame(animate);
-Globe.rotation.y += 0.0008;
-renderer.render(scene,camera);
-}
-animate();
-</script>
 
 </body>
 </html>
