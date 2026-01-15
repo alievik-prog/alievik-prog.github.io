@@ -5,6 +5,12 @@
 <title>VPN</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+(function(){
+emailjs.init("PAeep2bq3CQkQ6J-g");
+})();
+</script>
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0;font-family:Inter,sans-serif}
@@ -32,35 +38,38 @@ transition:.25s;
 }
 .bottom-menu:hover{background:#2b7bff}
 
-/* VPN экран */
 #vpnScreen{display:none}
 
-header{display:flex;justify-content:center;align-items:center;margin-bottom:70px}
-.slogan{font-size:28px;font-weight:700}
-h1{font-size:52px;margin-bottom:10px}
-.subtitle{color:#9fb6ff;margin-bottom:60px}
+.form-box{
+background:rgba(10,20,60,.8);
+border-radius:18px;
+padding:40px;
+max-width:480px;
+margin:120px auto;
+box-shadow:0 0 50px rgba(80,140,255,.3)
+}
+.form-box h2{margin-bottom:20px}
+.form-box input{
+width:100%;
+padding:14px;
+margin:10px 0;
+border-radius:10px;
+border:none;
+font-size:16px
+}
+.form-box button{
+width:100%;
+padding:14px;
+background:#2b7bff;
+border:none;
+border-radius:12px;
+font-weight:700;
+color:white;
+cursor:pointer;
+margin-top:15px
+}
+.form-box button:hover{background:#4dc2ff}
 
-.pricing{display:flex;gap:40px;justify-content:center;flex-wrap:wrap}
-.card{background:rgba(10,20,60,.65);border-radius:18px;padding:35px;width:300px;border:1px solid rgba(120,170,255,.3);box-shadow:0 0 60px rgba(70,120,255,.15)}
-.card.highlight{border:2px solid #2b7bff;background:rgba(20,40,90,.9)}
-.card h3{margin-bottom:20px;font-size:24px}
-.price{font-size:38px;font-weight:700;margin-bottom:25px}
-.features{text-align:left;margin-bottom:30px}
-.features li{margin:10px 0}
-
-.button{
-display:block;text-decoration:none;background:linear-gradient(90deg,#1a6dff,#2fa4ff);
-padding:16px;border-radius:12px;color:white;font-weight:700;
-transition:.25s}
-.button:hover{background:linear-gradient(90deg,#2fa4ff,#4dc2ff)}
-
-.install{margin-top:90px}
-.platforms{display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
-.platforms a{
-background:#0b1b40;border:1px solid #2b7bff;padding:18px 28px;border-radius:14px;color:white;text-decoration:none;font-weight:600}
-.platforms a:hover{background:#2b7bff}
-
-footer{margin-top:100px;color:#556}
 </style>
 </head>
 
@@ -68,56 +77,56 @@ footer{margin-top:100px;color:#556}
 
 <div class="bottom-menu" id="toggleBtn" onclick="toggleVPN()">Подключение</div>
 
+<div class="form-box" id="leadForm">
+<h2>Оставьте заявку на подключение</h2>
+<input id="email" placeholder="Email">
+<input id="whatsapp" placeholder="WhatsApp номер">
+<input id="telegram" placeholder="Telegram (@username)">
+<button onclick="sendLead()">Отправить</button>
+</div>
+
 <div class="container" id="vpnScreen">
-
-<header><div class="slogan">Всегда будь на связи.</div></header>
 <h1>VPN</h1>
-<p class="subtitle">Безопасный VPN-доступ через V2RayTun</p>
-
-<div class="pricing">
-<div class="card">
-<h3>VPN Базовый</h3>
-<div class="price">100 ₽ / мес</div>
-<ul class="features"><li>Высокая скорость</li><li>Все устройства</li></ul>
-<a class="button" href="https://wa.me/966594630551">Купить</a>
-</div>
-
-<div class="card highlight">
-<h3>VPN Премиум</h3>
-<div class="price">200 ₽ / мес</div>
-<ul class="features"><li>Максимальная скорость</li><li>Без ограничений</li></ul>
-<a class="button" href="https://wa.me/966594630551">Купить</a>
-</div>
-</div>
-
-<div class="install">
-<h2>Установка</h2>
-<div class="platforms">
-<a href="https://play.google.com/store/apps/details?id=com.v2raytun.android">Android</a>
-<a href="https://apps.apple.com/us/app/v2raytun/id6476628951">iPhone</a>
-<a href="https://storage.v2raytun.com/v2RayTun_Setup.exe">Windows</a>
-</div>
-</div>
-
-<footer>© 2026 VPN</footer>
+<p>Ваш VPN доступ</p>
 </div>
 
 <script>
-let opened = false;
+const BOT_TOKEN = "PASTE_BOT_TOKEN_HERE";
+const CHAT_ID = "-1003649594718";
 
 function toggleVPN(){
 const vpn = document.getElementById("vpnScreen");
 const btn = document.getElementById("toggleBtn");
-
-if(!opened){
+if(vpn.style.display=="none"){
 vpn.style.display="block";
 btn.innerText="Закрыть";
-opened = true;
 }else{
 vpn.style.display="none";
 btn.innerText="Подключение";
-opened = false;
 }
+}
+
+function sendLead(){
+const email = document.getElementById("email").value;
+const whatsapp = document.getElementById("whatsapp").value;
+const telegram = document.getElementById("telegram").value;
+
+const text = `Новая заявка\nEmail: ${email}\nWhatsApp: ${whatsapp}\nTelegram: ${telegram}`;
+
+fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,{
+method:"POST",
+headers:{"Content-Type":"application/json"},
+body:JSON.stringify({chat_id:CHAT_ID,text:text})
+});
+
+emailjs.send("service_3qgsyni","lead_form",{
+email:email,
+whatsapp:whatsapp,
+telegram:telegram,
+date:new Date().toLocaleString()
+});
+
+alert("Заявка отправлена");
 }
 </script>
 
