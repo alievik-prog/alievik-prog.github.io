@@ -1,1 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>VPN</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;font-family:Inter,sans-serif}
+body{
+background:
+linear-gradient(rgba(3,8,30,.92),rgba(3,8,30,.96)),
+url("https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Russia_blank_map.svg/2000px-Russia_blank_map.svg.png");
+background-size:cover;background-position:center;color:#fff;min-height:100vh}
+.container{max-width:1200px;margin:auto;padding:40px 20px;text-align:center}
+header{display:flex;justify-content:center;align-items:center;margin-bottom:70px}
+.slogan{font-size:28px;font-weight:700}
+h1{font-size:52px;margin-bottom:10px}
+.subtitle{color:#9fb6ff;margin-bottom:60px}
+.pricing{display:flex;gap:40px;justify-content:center;flex-wrap:wrap}
+.card{background:rgba(10,20,60,.65);border-radius:18px;padding:35px;width:300px;border:1px solid rgba(120,170,255,.3);box-shadow:0 0 60px rgba(70,120,255,.15)}
+.card.highlight{border:2px solid #2b7bff;background:rgba(20,40,90,.9)}
+.card h3{margin-bottom:20px;font-size:24px}
+.price{font-size:38px;font-weight:700;margin-bottom:25px}
+.features{text-align:left;margin-bottom:30px}
+.features li{margin:10px 0}
 
+/* кнопки купить */
+.button{
+display:block;text-decoration:none;background:linear-gradient(90deg,#1a6dff,#2fa4ff);
+padding:16px;border-radius:12px;color:white;font-weight:700;
+transition:.25s;box-shadow:0 0 0 rgba(47,164,255,0)}
+.button:hover{background:linear-gradient(90deg,#2fa4ff,#4dc2ff);box-shadow:0 0 25px rgba(47,164,255,.9);transform:translateY(-2px)}
+.button:active{background:linear-gradient(90deg,#ff2d55,#ff6a88);box-shadow:0 0 35px rgba(255,45,85,1);transform:scale(.97)}
+
+.install{margin-top:90px}
+.install h2{font-size:32px;margin-bottom:10px}
+.install p{color:#aab;margin-bottom:30px}
+.platforms{display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
+.platforms a{
+background:#0b1b40;border:1px solid #2b7bff;padding:18px 28px;border-radius:14px;color:white;text-decoration:none;font-weight:600;
+box-shadow:0 0 10px rgba(50,100,255,.3);transition:.25s}
+.platforms a:hover{background:#2b7bff;box-shadow:0 0 25px rgba(80,140,255,1);transform:translateY(-3px)}
+.platforms a:active{background:#ff2d55;box-shadow:0 0 35px rgba(255,45,85,1);transform:scale(.95)}
+footer{margin-top:100px;color:#556}
+</style>
+</head>
+
+<body>
+<div class="container">
+<header><div class="slogan">Всегда будь на связи.</div></header>
+<h1>VPN</h1>
+<p class="subtitle">Безопасный VPN-доступ через V2RayTun для Android, iPhone, Windows и роутеров</p>
+
+<div class="pricing">
+<div class="card">
+<h3>VPN Базовый</h3>
+<div class="price">100 ₽ / мес</div>
+<ul class="features"><li>Высокая скорость</li><li>V2RayTun</li><li>Все устройства</li><li>Поддержка</li></ul>
+<a class="button" href="https://wa.me/966594630551">Купить</a>
+</div>
+
+<div class="card highlight">
+<h3>VPN Премиум</h3>
+<div class="price">200 ₽ / мес</div>
+<ul class="features"><li>Максимальная скорость</li><li>Без ограничений</li><li>V2RayTun</li><li>Приоритетная поддержка</li></ul>
+<a class="button" href="https://wa.me/966594630551">Купить</a>
+</div>
+</div>
+
+<div class="install">
+<h2>Установка</h2>
+<p>Установите приложение для активации ключа</p>
+<div class="platforms">
+<a href="https://play.google.com/store/apps/details?id=com.v2raytun.android">Android</a>
+<a href="https://apps.apple.com/us/app/v2raytun/id6476628951">iPhone</a>
+<a href="https://storage.v2raytun.com/v2RayTun_Setup.exe">Windows</a>
+<a href="https://apps.apple.com/us/app/v2raytun/id6476628951?platform=mac">Mac</a>
+<a href="https://apps.apple.com/us/app/v2raytun/id6476628951?platform=ipad">iPad</a>
+</div>
+</div>
+
+<footer>© 2026 VPN</footer>
+</div>
+</body>
+</html>
