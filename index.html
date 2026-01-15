@@ -16,22 +16,6 @@ background-size:cover;background-position:center;color:#fff;min-height:100vh}
 
 .container{max-width:1200px;margin:auto;padding:40px 20px;text-align:center}
 
-/* верхняя кнопка подраздела */
-.subsection{
-position:fixed;
-top:20px;
-right:20px;
-background:#2b7bff;
-padding:12px 22px;
-border-radius:12px;
-font-weight:700;
-cursor:pointer;
-display:none;
-z-index:10;
-}
-.subsection:hover{background:#4dc2ff}
-
-/* нижнее меню */
 .bottom-menu{
 position:fixed;
 bottom:20px;
@@ -39,11 +23,12 @@ left:50%;
 transform:translateX(-50%);
 background:#0b1b40;
 border-radius:18px;
-padding:16px 30px;
+padding:16px 36px;
 box-shadow:0 0 25px rgba(80,140,255,.5);
 cursor:pointer;
 font-weight:700;
 z-index:10;
+transition:.25s;
 }
 .bottom-menu:hover{background:#2b7bff}
 
@@ -81,9 +66,7 @@ footer{margin-top:100px;color:#556}
 
 <body>
 
-<div class="subsection" onclick="showVPN()">Подраздел подключения</div>
-
-<div class="bottom-menu" onclick="showVPN()">Подключение</div>
+<div class="bottom-menu" id="toggleBtn" onclick="toggleVPN()">Подключение</div>
 
 <div class="container" id="vpnScreen">
 
@@ -120,9 +103,21 @@ footer{margin-top:100px;color:#556}
 </div>
 
 <script>
-function showVPN(){
-document.getElementById("vpnScreen").style.display="block";
-document.querySelector(".subsection").style.display="block";
+let opened = false;
+
+function toggleVPN(){
+const vpn = document.getElementById("vpnScreen");
+const btn = document.getElementById("toggleBtn");
+
+if(!opened){
+vpn.style.display="block";
+btn.innerText="Закрыть";
+opened = true;
+}else{
+vpn.style.display="none";
+btn.innerText="Подключение";
+opened = false;
+}
 }
 </script>
 
