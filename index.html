@@ -9,30 +9,36 @@
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0;font-family:Inter,sans-serif}
-html{overflow-x:hidden}
-body{color:#fff;min-height:100vh;background:#020617}
+html,body{margin:0!important;top:0!important;overflow-x:hidden;background:#020617;color:#fff}
 
-/* --- HIDE GOOGLE UI COMPLETELY --- */
+/* --- KILL GOOGLE UI --- */
 .goog-te-banner-frame.skiptranslate,
 .goog-te-balloon-frame,
-#goog-gt-tt,
 .goog-te-menu-frame,
 .goog-logo-link,
-.goog-te-gadget{
+.goog-te-gadget,
+#goog-gt-tt{
 display:none!important;
 }
 body{top:0!important}
 
 /* --- VIDEO BACKGROUND --- */
 .video-bg{
-position:fixed;top:50%;left:50%;
-width:115%;height:auto;min-height:115%;
+position:fixed;
+top:50%;
+left:50%;
+width:115%;
+height:auto;
+min-height:115%;
 transform:translate(-50%,-50%);
-object-fit:cover;z-index:-2;
+object-fit:cover;
+z-index:-2;
 filter:brightness(1.1) contrast(1.1);
 }
+
 .overlay{
-position:fixed;inset:0;
+position:fixed;
+inset:0;
 background:linear-gradient(rgba(2,6,23,.45),rgba(2,6,23,.65));
 z-index:-1;
 }
@@ -55,6 +61,7 @@ transition:.3s
 .price{font-size:22px;font-weight:700;margin-bottom:10px}
 .features{list-style:none;margin-bottom:12px}
 .features li{margin:4px 0;color:#cdd6ff;font-size:13px}
+
 .button{
 display:block;text-decoration:none;background:linear-gradient(90deg,#1a6dff,#2fa4ff);
 padding:10px;border-radius:10px;color:white;font-weight:700;font-size:13px;transition:.3s
@@ -66,7 +73,7 @@ padding:10px;border-radius:10px;color:white;font-weight:700;font-size:13px;trans
 .install h2{font-size:22px;margin-bottom:6px}
 .install p{color:#aab;margin-bottom:14px;font-size:13px}
 
-/* platforms in one row */
+/* platforms one row */
 .platforms{display:flex;gap:8px;justify-content:center;flex-wrap:nowrap;overflow-x:auto}
 .platforms a{
 background:#0b1b40;border:1px solid #2b7bff;padding:6px 10px;border-radius:8px;
@@ -75,9 +82,7 @@ color:white;text-decoration:none;font-weight:600;font-size:11px;white-space:nowr
 .platforms a:hover{background:#1e3a8a;box-shadow:0 0 20px rgba(80,140,255,.8)}
 
 /* --- CUSTOM LANGUAGE BAR --- */
-.lang-bar{
-display:flex;gap:10px;justify-content:center;align-items:center;margin-top:16px;flex-wrap:wrap
-}
+.lang-bar{display:flex;gap:10px;justify-content:center;margin-top:16px;flex-wrap:wrap}
 .lang-btn{
 background:#0b1b40;border:1px solid #3b82ff;color:#cfe2ff;
 padding:6px 10px;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer;transition:.25s
@@ -100,7 +105,7 @@ footer{margin-top:20px;color:#667;font-size:12px}
 <body>
 
 <video class="video-bg" autoplay muted loop playsinline>
-  <source src="planeta.webm" type="video/webm">
+<source src="planeta.webm" type="video/webm">
 </video>
 <div class="overlay"></div>
 
@@ -110,80 +115,84 @@ footer{margin-top:20px;color:#667;font-size:12px}
 <div class="logo">VPN</div>
 
 <div class="pricing">
-  <div class="card">
-    <h3>Базовый</h3>
-    <div class="price">100 ₽ / мес</div>
-    <ul class="features"><li>Высокая скорость</li></ul>
-    <a class="button" href="https://wa.me/966594630551">Купить</a>
-  </div>
+<div class="card">
+<h3>Базовый</h3>
+<div class="price">100 ₽ / мес</div>
+<ul class="features"><li>Высокая скорость</li></ul>
+<a class="button" href="https://wa.me/966594630551">Купить</a>
+</div>
 
-  <div class="card highlight">
-    <h3>Премиум</h3>
-    <div class="price">200 ₽ / мес</div>
-    <ul class="features"><li>Максимальная скорость</li></ul>
-    <a class="button" href="https://wa.me/966594630551">Купить</a>
-  </div>
+<div class="card highlight">
+<h3>Премиум</h3>
+<div class="price">200 ₽ / мес</div>
+<ul class="features"><li>Максимальная скорость</li></ul>
+<a class="button" href="https://wa.me/966594630551">Купить</a>
+</div>
 </div>
 
 <div class="install">
-  <h2>Установка</h2>
-  <p>Установите V2RayTun для активации ключа</p>
+<h2>Установка</h2>
+<p>Установите V2RayTun для активации ключа</p>
 
-  <div class="platforms">
-    <a href="https://play.google.com/store/apps/details?id=com.v2raytun.android">Android</a>
-    <a href="https://apps.apple.com/us/app/v2raytun/id6476628951">iPhone</a>
-    <a href="https://storage.v2raytun.com/v2RayTun_Setup.exe">Windows</a>
-    <a href="https://apps.apple.com/us/app/v2raytun/id6476628951?platform=mac">Mac</a>
-    <a href="https://apps.apple.com/us/app/v2raytun/id6476628951?platform=ipad">iPad</a>
-  </div>
+<div class="platforms">
+<a href="https://play.google.com/store/apps/details?id=com.v2raytun.android">Android</a>
+<a href="https://apps.apple.com/us/app/v2raytun/id6476628951">iPhone</a>
+<a href="https://storage.v2raytun.com/v2RayTun_Setup.exe">Windows</a>
+<a href="https://apps.apple.com/us/app/v2raytun/id6476628951?platform=mac">Mac</a>
+<a href="https://apps.apple.com/us/app/v2raytun/id6476628951?platform=ipad">iPad</a>
+</div>
 
-  <!-- CUSTOM LANGUAGE BAR -->
-  <div class="lang-bar" id="langBar">
-    <div class="lang-btn active" data-lang="ru">RU</div>
-    <div class="lang-btn" data-lang="en">EN</div>
-    <div class="lang-btn" data-lang="ar">AR</div>
-    <div class="lang-btn" data-lang="hi">HI</div>
-    <div class="lang-btn" data-lang="zh-CN">ZH</div>
-    <div class="lang-btn" data-lang="tr">TR</div>
-    <div class="lang-btn" data-lang="fr">FR</div>
-    <div class="lang-btn" data-lang="de">DE</div>
-    <div class="lang-btn" data-lang="es">ES</div>
-  </div>
+<div class="lang-bar" id="langBar">
+<div class="lang-btn active" data-lang="ru">RU</div>
+<div class="lang-btn" data-lang="en">EN</div>
+<div class="lang-btn" data-lang="ar">AR</div>
+<div class="lang-btn" data-lang="hi">HI</div>
+<div class="lang-btn" data-lang="zh-CN">ZH</div>
+<div class="lang-btn" data-lang="tr">TR</div>
+<div class="lang-btn" data-lang="fr">FR</div>
+<div class="lang-btn" data-lang="de">DE</div>
+<div class="lang-btn" data-lang="es">ES</div>
+</div>
 
-  <p style="margin-top:16px;font-size:12px;">
-    Официальный сайт V2RayTun:<br>
-    <a href="https://v2raytun.com/" target="_blank" style="color:#4da3ff;">https://v2raytun.com</a>
-  </p>
+<p style="margin-top:16px;font-size:12px;">
+Официальный сайт V2RayTun:<br>
+<a href="https://v2raytun.com/" target="_blank" style="color:#4da3ff;">https://v2raytun.com</a>
+</p>
+
 </div>
 
 <footer>© 2026 VPN</footer>
 
 </div>
 
-<!-- GOOGLE TRANSLATE ENGINE (hidden) -->
+<!-- Google engine (hidden) -->
 <div id="google_translate_element" style="display:none"></div>
 <script>
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement({pageLanguage:'ru'}, 'google_translate_element');
+function googleTranslateElementInit(){
+ new google.translate.TranslateElement({pageLanguage:'ru'}, 'google_translate_element');
 }
 </script>
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-<!-- CUSTOM LANGUAGE CONTROL -->
 <script>
 function setLanguage(lang){
-  // set cookie used by Google Translate
-  document.cookie = "googtrans=/ru/" + lang + ";path=/;domain=" + location.hostname;
-  location.reload();
+ document.cookie = "googtrans=/ru/"+lang+";path=/;domain="+location.hostname;
+ location.reload();
 }
 
 document.querySelectorAll('.lang-btn').forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));
-    btn.classList.add('active');
-    setLanguage(btn.dataset.lang);
-  });
+ btn.onclick=()=>{
+  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  setLanguage(btn.dataset.lang);
+ }
 });
+
+/* Kill Google banner if it tries to appear */
+setInterval(()=>{
+ const f=document.querySelector('.goog-te-banner-frame');
+ if(f){f.style.display='none';document.body.style.top='0px';}
+},200);
 </script>
 
 </body>
