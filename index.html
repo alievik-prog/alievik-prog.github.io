@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<title>VPN</title>
+<title>Damadaev VPN</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
@@ -10,102 +10,190 @@
 *{box-sizing:border-box;margin:0;padding:0;font-family:Inter,sans-serif}
 body{
 background:
-linear-gradient(rgba(3,8,30,.92),rgba(3,8,30,.96)),
+linear-gradient(rgba(3,8,30,.93),rgba(3,8,30,.93)),
 url("https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Russia_blank_map.svg/2000px-Russia_blank_map.svg.png");
-background-size:cover;background-position:center;color:#fff;min-height:100vh}
+background-size:cover;background-position:center;
+color:white;height:100vh;overflow:hidden;
+}
 
-.container{max-width:1200px;margin:auto;padding:40px 20px;text-align:center}
-header{display:flex;justify-content:center;align-items:center;margin-bottom:70px}
-.slogan{font-size:28px;font-weight:700}
-h1{font-size:52px;margin-bottom:10px}
-.subtitle{color:#9fb6ff;margin-bottom:60px}
-.pricing{display:flex;gap:40px;justify-content:center;flex-wrap:wrap}
-.card{background:rgba(10,20,60,.65);border-radius:18px;padding:35px;width:300px;border:1px solid rgba(120,170,255,.3)}
-.card.highlight{border:2px solid #2b7bff}
-.card h3{margin-bottom:20px;font-size:24px}
-.price{font-size:38px;font-weight:700;margin-bottom:25px}
-.features{text-align:left;margin-bottom:30px}
-.features li{margin:10px 0}
+.app{
+max-width:390px;
+height:100vh;
+margin:auto;
+padding:12px;
+display:flex;
+flex-direction:column;
+justify-content:space-between;
+}
+
+header{text-align:center}
+header h1{font-size:28px;font-weight:700}
+header p{color:#9fb6ff;font-size:13px}
+
+.cards{
+display:flex;
+gap:10px;
+margin-top:10px;
+}
+
+.card{
+flex:1;
+background:rgba(15,30,80,.75);
+border-radius:14px;
+padding:10px;
+border:1px solid rgba(120,170,255,.3);
+text-align:center;
+}
+
+.card h3{font-size:14px;margin-bottom:4px}
+.price{font-size:20px;font-weight:700;color:#4dc2ff}
+.card ul{
+font-size:11px;
+margin-top:4px;
+color:#cbd7ff;
+list-style:none;
+}
+.card li{margin:3px 0}
+
 .button{
-display:block;text-decoration:none;background:linear-gradient(90deg,#1a6dff,#2fa4ff);
-padding:16px;border-radius:12px;color:white;font-weight:700
-}
-.button:hover{background:linear-gradient(90deg,#2fa4ff,#4dc2ff)}
-
-.install{margin-top:90px}
-.platforms{display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
-.platforms a{
-background:#0b1b40;border:1px solid #2b7bff;padding:18px 28px;border-radius:14px;color:white;text-decoration:none;font-weight:600
-}
-.platforms a:hover{background:#2b7bff}
-
-.request-btn{
-margin-top:60px;
-display:inline-block;
-background:#ff2d55;
-padding:18px 40px;
-border-radius:18px;
-font-size:18px;
+display:block;
+margin-top:6px;
+padding:8px;
+font-size:12px;
+border-radius:10px;
+background:#2b7bff;
+color:white;
+text-decoration:none;
 font-weight:700;
-cursor:pointer
 }
 
-/* Модальное окно */
+.install{
+text-align:center;
+margin-top:8px;
+}
+
+.install h4{
+font-size:13px;
+color:#9fb6ff;
+margin-bottom:4px;
+}
+
+.platforms{
+display:flex;
+gap:6px;
+justify-content:center;
+flex-wrap:wrap;
+}
+
+.platforms a{
+font-size:11px;
+padding:6px 10px;
+background:#0b1b40;
+border-radius:8px;
+border:1px solid #2b7bff;
+color:white;
+text-decoration:none;
+}
+
+.request{
+margin-top:8px;
+background:#ff2d55;
+padding:10px;
+border-radius:14px;
+text-align:center;
+font-size:14px;
+font-weight:700;
+cursor:pointer;
+}
+
 .modal{
-position:fixed;inset:0;background:rgba(0,0,0,.85);
-display:none;align-items:center;justify-content:center;z-index:10
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.85);
+display:none;
+align-items:center;
+justify-content:center;
+z-index:10;
 }
+
 .modal.active{display:flex}
+
 .form{
-background:#0b1b40;padding:30px;border-radius:20px;width:90%;max-width:400px
+background:#0b1b40;
+padding:20px;
+border-radius:16px;
+width:90%;
+max-width:320px;
 }
-.form h3{text-align:center;margin-bottom:10px}
-.form p{text-align:center;color:#9fb6ff;margin-bottom:15px}
+
+.form h3{text-align:center;font-size:16px;margin-bottom:4px}
+.form p{text-align:center;font-size:12px;color:#9fb6ff;margin-bottom:10px}
+
 .form input{
-width:100%;padding:14px;margin:8px 0;border-radius:12px;border:none
+width:100%;
+padding:10px;
+margin:5px 0;
+border-radius:10px;
+border:none;
+font-size:13px;
 }
+
 .form button{
-width:100%;padding:14px;background:#2b7bff;border:none;border-radius:12px;color:white;font-weight:700
+width:100%;
+padding:10px;
+background:#2b7bff;
+border:none;
+border-radius:12px;
+font-weight:700;
+color:white;
+margin-top:8px;
 }
-.close{text-align:center;margin-top:10px;color:#9fb6ff;cursor:pointer}
+
+.close{
+text-align:center;
+margin-top:6px;
+font-size:12px;
+color:#9fb6ff;
+cursor:pointer;
+}
 </style>
 </head>
 
 <body>
 
-<div class="container">
-<header><div class="slogan">Всегда будь на связи</div></header>
-<h1>Подключи наш VPN</h1>
-<p class="subtitle">Безопасный VPN-доступ через V2RayTun</p>
+<div class="app">
 
-<div class="pricing">
+<header>
+<h1>Подключи наш VPN</h1>
+<p>Всегда будь на связи</p>
+</header>
+
+<div class="cards">
 <div class="card">
-<h3>VPN Базовый</h3>
-<div class="price">100 ₽ / мес</div>
-<ul class="features">
-<li>Скорость до 50 Мбит</li>
+<h3>Базовый</h3>
+<div class="price">100 ₽</div>
+<ul>
+<li>Скорость до 100 Мбит</li>
 <li>Все устройства</li>
-<li>1 ключ — 1 устройство</li>
-<li>Поддержка</li>
+<li>1 ключ / 1 устройство</li>
 </ul>
 <a class="button" href="https://wa.me/966594630551">Подключить</a>
 </div>
 
-<div class="card highlight">
-<h3>VPN Премиум</h3>
-<div class="price">200 ₽ / мес</div>
-<ul class="features">
+<div class="card">
+<h3>Премиум</h3>
+<div class="price">200 ₽</div>
+<ul>
 <li>Скорость до 200 Мбит</li>
 <li>До 3 устройств</li>
 <li>Все устройства</li>
-<li>Поддержка</li>
 </ul>
 <a class="button" href="https://wa.me/966594630551">Подключить</a>
 </div>
 </div>
 
 <div class="install">
-<h2>Установка</h2>
+<h4>Установка</h4>
 <div class="platforms">
 <a href="https://play.google.com/store/apps/details?id=com.v2raytun.android">Android</a>
 <a href="https://apps.apple.com/us/app/v2raytun/id6476628951">iPhone</a>
@@ -113,12 +201,13 @@ width:100%;padding:14px;background:#2b7bff;border:none;border-radius:12px;color:
 </div>
 </div>
 
-<div class="request-btn" onclick="openForm()">Оставить заявку</div>
+<div class="request" onclick="openForm()">Оставить заявку</div>
+
 </div>
 
 <div class="modal" id="modal">
 <div class="form">
-<h3>Оставить заявку</h3>
+<h3>Заявка на подключение</h3>
 <p>Укажите любой удобный способ связи</p>
 <input id="email" placeholder="Email">
 <input id="whatsapp" placeholder="WhatsApp">
@@ -136,12 +225,13 @@ function openForm(){modal.classList.add("active")}
 function closeForm(){modal.classList.remove("active")}
 
 function sendLead(){
-const email=email.value;
-const whatsapp=whatsapp.value;
-const telegram=telegram.value;
 fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,{
-method:"POST",headers:{"Content-Type":"application/json"},
-body:JSON.stringify({chat_id:CHAT_ID,text:`Новая заявка\nEmail: ${email}\nWhatsApp: ${whatsapp}\nTelegram: ${telegram}`})
+method:"POST",
+headers:{"Content-Type":"application/json"},
+body:JSON.stringify({
+chat_id:CHAT_ID,
+text:`Новая заявка\nEmail: ${email.value}\nWhatsApp: ${whatsapp.value}\nTelegram: ${telegram.value}`
+})
 });
 alert("Заявка отправлена");
 closeForm();
