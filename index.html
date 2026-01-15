@@ -8,6 +8,7 @@
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0;font-family:Inter,sans-serif}
+
 body{
 background:
 linear-gradient(rgba(3,8,30,.93),rgba(3,8,30,.93)),
@@ -16,8 +17,18 @@ background-size:cover;
 background-position:center;
 color:white;
 min-height:100vh;
+overflow:hidden;
 }
 
+/* Обёртка масштабирования */
+.scale-wrapper{
+transform: scale(1.5);
+transform-origin: top center;
+width: 66.666%;
+margin: 0 auto;
+}
+
+/* Внутренний интерфейс */
 .app{
 max-width:390px;
 margin:auto;
@@ -119,6 +130,7 @@ text-decoration:none;
 
 <body>
 
+<div class="scale-wrapper">
 <div class="app">
 
 <header>
@@ -165,6 +177,7 @@ text-decoration:none;
 </div>
 </div>
 
+</div>
 </div>
 
 </body>
