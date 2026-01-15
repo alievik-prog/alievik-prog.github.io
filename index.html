@@ -18,23 +18,40 @@ background:#020617;
 }
 
 /* ===== VIDEO BACKGROUND ===== */
-.video-bg{
+.video-wrap{
 position:fixed;
-top:50%;
-left:50%;
-width:100%;
-height:auto;
-min-height:100%;
-transform:translate(-50%,-50%);
-object-fit:contain;
+inset:0;
+overflow:hidden;
 z-index:-2;
-opacity:.9;
 }
 
+.video-bg{
+position:absolute;
+top:50%;
+left:50%;
+width:120%;
+height:auto;
+min-height:120%;
+transform:translate(-50%,-50%);
+object-fit:cover;
+filter:brightness(1.15) contrast(1.15);
+}
+
+/* blurred edges */
+.video-wrap::after{
+content:"";
+position:absolute;
+inset:-20px;
+backdrop-filter:blur(35px);
+background:linear-gradient(rgba(2,6,23,.4),rgba(2,6,23,.6));
+z-index:1;
+}
+
+/* dark overlay */
 .overlay{
 position:fixed;
 inset:0;
-background:linear-gradient(rgba(2,6,23,.85),rgba(2,6,23,.9));
+background:linear-gradient(rgba(2,6,23,.5),rgba(2,6,23,.7));
 z-index:-1;
 }
 
@@ -42,59 +59,49 @@ z-index:-1;
 .container{
 max-width:1200px;
 margin:auto;
-padding:40px 20px;
+padding:30px 20px;
 text-align:center;
 }
 
 /* ===== HEADER ===== */
 header{
-margin-bottom:60px;
+margin-bottom:30px;
 }
 
 .logo{
-font-size:36px;
+font-size:44px;
 font-weight:700;
+margin-top:10px;
 }
 
 .slogan{
-margin-top:10px;
-font-size:26px;
+font-size:22px;
 font-weight:600;
-color:#9fb6ff;
-}
-
-/* ===== TITLES ===== */
-h1{
-font-size:52px;
-margin-bottom:10px;
-}
-
-.subtitle{
-color:#aab;
-margin-bottom:60px;
+color:#b7c8ff;
 }
 
 /* ===== PRICING ===== */
 .pricing{
 display:flex;
-gap:40px;
+gap:20px;
 justify-content:center;
 flex-wrap:wrap;
+margin-top:30px;
 }
 
 .card{
 background:rgba(10,20,60,.7);
-border-radius:18px;
-padding:28px;
-width:320px;
+border-radius:16px;
+padding:18px;
+width:260px;
 border:1px solid rgba(120,170,255,.3);
-box-shadow:0 0 40px rgba(70,120,255,.15);
+box-shadow:0 0 30px rgba(70,120,255,.2);
 transition:.3s;
 }
 
 .card:hover{
-transform:translateY(-8px);
-box-shadow:0 0 80px rgba(80,140,255,.6);
+transform:translateY(-6px);
+box-shadow:0 0 60px rgba(80,140,255,.7);
 border-color:#3b82ff;
 }
 
@@ -103,23 +110,24 @@ border:2px solid #3b82ff;
 background:rgba(20,40,90,.85);
 }
 
-.card h3{margin-bottom:14px;font-size:22px}
+.card h3{margin-bottom:10px;font-size:18px}
 
-.price{font-size:34px;font-weight:700;margin-bottom:20px}
+.price{font-size:26px;font-weight:700;margin-bottom:12px}
 
-.features{list-style:none;margin-bottom:25px}
+.features{list-style:none;margin-bottom:15px}
 
-.features li{margin:8px 0;color:#cdd6ff}
+.features li{margin:6px 0;color:#cdd6ff;font-size:14px}
 
-/* ===== BUTTONS ===== */
+/* ===== BUTTON ===== */
 .button{
 display:block;
 text-decoration:none;
 background:linear-gradient(90deg,#1a6dff,#2fa4ff);
-padding:14px;
-border-radius:12px;
+padding:10px;
+border-radius:10px;
 color:white;
 font-weight:700;
+font-size:14px;
 transition:.3s;
 }
 
@@ -129,15 +137,17 @@ box-shadow:0 0 25px rgba(80,140,255,.8);
 }
 
 /* ===== INSTALL ===== */
-.install{margin-top:90px}
+.install{
+margin-top:40px;
+}
 
-.install h2{font-size:32px;margin-bottom:15px}
+.install h2{font-size:24px;margin-bottom:10px}
 
-.install p{color:#aab;margin-bottom:40px}
+.install p{color:#aab;margin-bottom:20px;font-size:14px}
 
 .platforms{
 display:flex;
-gap:18px;
+gap:12px;
 justify-content:center;
 flex-wrap:wrap;
 }
@@ -145,11 +155,12 @@ flex-wrap:wrap;
 .platforms a{
 background:#0b1b40;
 border:1px solid #2b7bff;
-padding:14px 22px;
-border-radius:12px;
+padding:10px 16px;
+border-radius:10px;
 color:white;
 text-decoration:none;
 font-weight:600;
+font-size:13px;
 transition:.3s;
 }
 
@@ -159,51 +170,33 @@ box-shadow:0 0 20px rgba(80,140,255,.8);
 }
 
 /* ===== FOOTER ===== */
-footer{margin-top:80px;color:#556}
+footer{margin-top:40px;color:#667;font-size:12px}
 
-/* ===== MOBILE FIX ===== */
+/* ===== MOBILE ===== */
 @media(max-width:768px){
-h1{font-size:34px}
-.logo{font-size:30px}
-.slogan{font-size:20px}
-
-.pricing{
-flex-wrap:nowrap;
-gap:10px;
-}
-
-.card{
-width:48%;
-padding:18px;
-}
-
-.price{
-font-size:26px;
-}
-
-.features li{
-font-size:14px;
-}
+.pricing{gap:10px}
+.card{width:48%}
+.logo{font-size:34px}
 }
 </style>
 </head>
 
 <body>
 
+<div class="video-wrap">
 <video class="video-bg" autoplay muted loop playsinline>
 <source src="planeta.webm" type="video/webm">
 </video>
+</div>
+
 <div class="overlay"></div>
 
 <div class="container">
 
 <header>
-<div class="logo">VPN</div>
 <div class="slogan">Всегда Будь На Связи</div>
+<div class="logo">VPN</div>
 </header>
-
-<h1>Цены</h1>
-<p class="subtitle">VPN-доступ для V2RayTun. Работает на Android, iPhone, Windows и Mac.</p>
 
 <div class="pricing">
 
@@ -239,7 +232,7 @@ font-size:14px;
 <a href="https://apps.apple.com/us/app/v2raytun/id6476628951?platform=ipad">iPad</a>
 </div>
 
-<p style="margin-top:40px;">
+<p style="margin-top:20px;font-size:13px;">
 Официальный сайт V2RayTun:<br>
 <a href="https://v2raytun.com/" target="_blank" style="color:#4da3ff;">
 https://v2raytun.com
