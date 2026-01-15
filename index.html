@@ -24,31 +24,30 @@ background:linear-gradient(rgba(2,6,23,.45),rgba(2,6,23,.65));
 z-index:-1;
 }
 
-.container{max-width:1100px;margin:auto;padding:20px;text-align:center}
-.logo{font-size:40px;font-weight:700}
-.slogan{font-size:20px;color:#b7c8ff;margin-bottom:8px}
+.container{max-width:1000px;margin:auto;padding:20px;text-align:center}
+.logo{font-size:36px;font-weight:700}
+.slogan{font-size:18px;color:#b7c8ff;margin-bottom:8px}
 
-/* cards */
-.pricing{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:20px}
+/* CARDS */
+.pricing{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:16px}
 .card{
 background:rgba(10,20,60,.75);
-border-radius:14px;
-padding:12px;
-width:210px;
+border-radius:12px;
+padding:10px;
+width:190px;
 border:1px solid rgba(120,170,255,.3);
-box-shadow:0 0 18px rgba(70,120,255,.2);
+box-shadow:0 0 15px rgba(70,120,255,.2);
 transition:.25s;
-cursor:pointer
 }
 .card:hover{
-transform:scale(1.05);
+transform:scale(1.06);
 background:rgba(20,40,90,.9);
-box-shadow:0 0 30px rgba(80,140,255,.6);
+box-shadow:0 0 25px rgba(80,140,255,.6);
 }
 .card.highlight{border:2px solid #3b82ff}
-.card h3{font-size:15px}
-.price{font-size:20px;font-weight:700;margin:4px 0}
-.features{list-style:none;font-size:12px;color:#cdd6ff}
+.card h3{font-size:14px}
+.price{font-size:18px;font-weight:700}
+.features{list-style:none;font-size:11px;color:#cdd6ff}
 
 /* instruction zoom */
 .pricing .card:last-child:hover{transform:scale(1.08)}
@@ -56,8 +55,8 @@ box-shadow:0 0 30px rgba(80,140,255,.6);
 .button{
 display:block;
 background:#3b82ff;
-padding:8px;
-border-radius:10px;
+padding:7px;
+border-radius:8px;
 color:white;
 text-decoration:none;
 margin-top:6px;
@@ -67,28 +66,28 @@ transition:.2s
 .button:hover{
 background:#60a5ff;
 transform:scale(1.05);
-box-shadow:0 0 15px rgba(80,140,255,.8)
+box-shadow:0 0 12px rgba(80,140,255,.8)
 }
 
 /* install */
-.install{margin-top:30px}
-.platforms{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.install{margin-top:25px}
+.platforms{display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
 .platforms a{
-background:#0b1b40;border:1px solid #3b82ff;padding:6px 10px;
-border-radius:8px;color:white;font-size:11px;text-decoration:none;
+background:#0b1b40;border:1px solid #3b82ff;padding:5px 8px;
+border-radius:6px;color:white;font-size:10px;text-decoration:none;
 transition:.2s
 }
 .platforms a:hover{
 background:#1e40af;
-transform:scale(1.08);
+transform:scale(1.1);
 box-shadow:0 0 12px rgba(90,150,255,.8)
 }
 
 /* language */
-.lang-bar{display:flex;gap:10px;justify-content:center;margin-top:20px}
+.lang-bar{display:flex;gap:8px;justify-content:center;margin-top:15px}
 .lang-btn{
 background:#0b1b40;border:1px solid #3b82ff;
-padding:6px 10px;border-radius:8px;font-size:12px;
+padding:5px 8px;border-radius:6px;font-size:11px;
 cursor:pointer;color:white;transition:.2s
 }
 .lang-btn:hover{
@@ -98,37 +97,20 @@ box-shadow:0 0 10px rgba(90,150,255,.8)
 }
 .lang-btn.active{background:#3b82ff}
 
-footer{margin-top:20px;color:#667;font-size:12px}
+footer{margin-top:15px;color:#667;font-size:11px}
 
 /* QR modal */
 .modal{
-position:fixed;inset:0;background:rgba(0,0,0,.8);
+position:fixed;inset:0;background:rgba(0,0,0,.85);
 display:none;align-items:center;justify-content:center;z-index:10
 }
 .modal-content{
 background:#0b1b40;padding:20px;border-radius:12px;
-max-width:400px;width:90%;text-align:center;
+max-width:360px;width:90%;text-align:center;
 animation:zoom .25s ease
 }
-.modal img{width:100%;border-radius:10px;cursor:pointer;transition:.25s}
-.modal img:hover{
-transform:scale(1.08);
-box-shadow:0 0 25px rgba(120,180,255,.9)
-}
-@keyframes zoom{
-from{transform:scale(.7);opacity:0}
-to{transform:scale(1);opacity:1}
-}
-.copy-btn{
-margin-top:10px;background:#3b82ff;border:none;
-color:white;padding:8px 12px;border-radius:8px;
-cursor:pointer;transition:.2s
-}
-.copy-btn:hover{
-background:#60a5ff;
-transform:scale(1.1);
-box-shadow:0 0 12px rgba(90,150,255,.8)
-}
+.modal img{width:100%;border-radius:10px;cursor:pointer}
+@keyframes zoom{from{transform:scale(.7);opacity:0}to{transform:scale(1);opacity:1}}
 
 @media(max-width:768px){.card{width:47%}}
 </style>
@@ -150,14 +132,14 @@ box-shadow:0 0 12px rgba(90,150,255,.8)
 
 <div class="card">
 <h3 data-t="basic">Базовый</h3>
-<div class="price">100 ₽ / мес</div>
+<div class="price">100 ₽</div>
 <ul class="features"><li data-t="speed">Высокая скорость</li></ul>
 <a class="button" href="https://wa.me/966594630551" data-t="buy">Купить</a>
 </div>
 
 <div class="card highlight">
 <h3 data-t="premium">Премиум</h3>
-<div class="price">200 ₽ / мес</div>
+<div class="price">200 ₽</div>
 <ul class="features"><li data-t="maxspeed">Максимальная скорость</li></ul>
 <a class="button" href="https://wa.me/966594630551" data-t="buy">Купить</a>
 </div>
@@ -172,14 +154,14 @@ box-shadow:0 0 12px rgba(90,150,255,.8)
 
 <div class="card">
 <h3 data-t="instruction">Инструкция</h3>
-<ul class="features" style="text-align:left;font-size:12px">
-<li>1. Скопируйте ключ</li>
-<li>2. Откройте V2RayTun</li>
-<li>3. Нажмите «+»</li>
-<li>4. Вставить из буфера</li>
-<li>5. OK → Разрешить</li>
-<li>6. Подключить</li>
-<li>7. Статус «Подключено»</li>
+<ul class="features" id="instructionList">
+<li data-i="1">Скопируйте ключ</li>
+<li data-i="2">Откройте V2RayTun</li>
+<li data-i="3">Нажмите «+»</li>
+<li data-i="4">Вставить из буфера</li>
+<li data-i="5">OK → Разрешить</li>
+<li data-i="6">Подключить</li>
+<li data-i="7">Статус «Подключено»</li>
 </ul>
 </div>
 
@@ -196,6 +178,11 @@ box-shadow:0 0 12px rgba(90,150,255,.8)
 <a href="https://apps.apple.com/us/app/v2raytun/id6476628951?platform=mac">Mac</a>
 <a href="https://apps.apple.com/us/app/v2raytun/id6476628951?platform=ipad">iPad</a>
 </div>
+
+<p style="margin-top:10px;font-size:12px;">
+Официальный сайт V2RayTun:
+<a href="https://v2raytun.com" style="color:#4da3ff" target="_blank">https://v2raytun.com</a>
+</p>
 </div>
 
 <div class="lang-bar">
@@ -211,9 +198,9 @@ box-shadow:0 0 12px rgba(90,150,255,.8)
 
 <div class="modal" id="qrModal">
 <div class="modal-content">
-<h3>QR-код</h3>
+<h3>QR</h3>
 <img src="QR.png">
-<button class="copy-btn" onclick="closeQR()">Закрыть</button>
+<button class="button" onclick="closeQR()">Закрыть</button>
 </div>
 </div>
 
@@ -226,16 +213,25 @@ function closeQR(){document.getElementById("qrModal").style.display="none"}
 
 <script>
 const dict={
-ru:{slogan:"Всегда Будь На Связи",basic:"Базовый",premium:"Премиум",speed:"Высокая скорость",maxspeed:"Максимальная скорость",buy:"Купить",install:"Установка",installText:"Установите V2RayTun для активации ключа",free:"Бесплатный ключ",freeText:"Базовый доступ",get:"Скопировать ключ",instruction:"Инструкция"},
-en:{slogan:"Always stay connected",basic:"Basic",premium:"Premium",speed:"High speed",maxspeed:"Maximum speed",buy:"Buy",install:"Installation",installText:"Install V2RayTun to activate key",free:"Free key",freeText:"Basic access",get:"Copy key",instruction:"Instruction"},
-ar:{slogan:"ابقَ متصلاً دائمًا",basic:"أساسي",premium:"مميز",speed:"سرعة عالية",maxspeed:"أقصى سرعة",buy:"شراء",install:"التثبيت",installText:"ثبت V2RayTun لتفعيل المفتاح",free:"مفتاح مجاني",freeText:"وصول أساسي",get:"نسخ",instruction:"التعليمات"},
-hi:{slogan:"हमेशा जुड़े रहें",basic:"बेसिक",premium:"प्रीमियम",speed:"तेज़ गति",maxspeed:"अधिकतम गति",buy:"खरीदें",install:"इंस्टॉल",installText:"कुंजी सक्रिय करने के लिए V2RayTun इंस्टॉल करें",free:"मुफ़्त कुंजी",freeText:"बेसिक एक्सेस",get:"कॉपी करें",instruction:"निर्देश"},
-zh:{slogan:"始终保持连接",basic:"基础版",premium:"高级版",speed:"高速",maxspeed:"最高速度",buy:"购买",install:"安装",installText:"安装 V2RayTun 以激活密钥",free:"免费密钥",freeText:"基础访问",get:"复制",instruction:"说明"}
-}
+ru:{slogan:"Всегда Будь На Связи",basic:"Базовый",premium:"Премиум",speed:"Высокая скорость",maxspeed:"Максимальная скорость",buy:"Купить",install:"Установка",installText:"Установите V2RayTun для активации ключа",free:"Бесплатный ключ",freeText:"Базовый доступ",get:"Скопировать ключ",instruction:"Инструкция",
+i1:"Скопируйте ключ",i2:"Откройте V2RayTun",i3:"Нажмите «+»",i4:"Вставить из буфера",i5:"OK → Разрешить",i6:"Подключить",i7:"Статус «Подключено»"},
+en:{slogan:"Always stay connected",basic:"Basic",premium:"Premium",speed:"High speed",maxspeed:"Maximum speed",buy:"Buy",install:"Install",installText:"Install V2RayTun to activate key",free:"Free key",freeText:"Basic access",get:"Copy key",instruction:"Instruction",
+i1:"Copy the key",i2:"Open V2RayTun",i3:"Tap +",i4:"Paste from clipboard",i5:"Allow",i6:"Connect",i7:"Status Connected"},
+ar:{slogan:"ابقَ متصلاً دائمًا",basic:"أساسي",premium:"مميز",speed:"سرعة عالية",maxspeed:"أقصى سرعة",buy:"شراء",install:"التثبيت",installText:"ثبت V2RayTun لتفعيل المفتاح",free:"مفتاح مجاني",freeText:"وصول أساسي",get:"نسخ",instruction:"التعليمات",
+i1:"انسخ المفتاح",i2:"افتح V2RayTun",i3:"اضغط +",i4:"الصق",i5:"سماح",i6:"اتصال",i7:"متصل"},
+hi:{slogan:"हमेशा जुड़े रहें",basic:"बेसिक",premium:"प्रीमियम",speed:"तेज़ गति",maxspeed:"अधिकतम गति",buy:"खरीदें",install:"इंस्टॉल",installText:"V2RayTun इंस्टॉल करें",free:"मुफ़्त कुंजी",freeText:"बेसिक एक्सेस",get:"कॉपी करें",instruction:"निर्देश",
+i1:"कुंजी कॉपी करें",i2:"V2RayTun खोलें",i3:"+ दबाएं",i4:"पेस्ट करें",i5:"अनुमति दें",i6:"कनेक्ट",i7:"कनेक्टेड"},
+zh:{slogan:"始终保持连接",basic:"基础版",premium:"高级版",speed:"高速",maxspeed:"最高速度",buy:"购买",install:"安装",installText:"安装 V2RayTun",free:"免费密钥",freeText:"基础访问",get:"复制",instruction:"说明",
+i1:"复制密钥",i2:"打开 V2RayTun",i3:"点击 +",i4:"粘贴",i5:"允许",i6:"连接",i7:"已连接"}
+};
+
 function setLang(l){
 document.querySelectorAll("[data-t]").forEach(el=>{
 el.textContent=dict[l][el.getAttribute("data-t")]
-})
+});
+document.querySelectorAll("#instructionList li").forEach(li=>{
+li.textContent=dict[l]["i"+li.getAttribute("data-i")];
+});
 }
 </script>
 
