@@ -18,90 +18,70 @@ background:#020617;
 }
 
 /* ===== VIDEO BACKGROUND ===== */
-.video-wrap{
-position:fixed;
-inset:0;
-overflow:hidden;
-z-index:-2;
-}
-
 .video-bg{
-position:absolute;
+position:fixed;
 top:50%;
 left:50%;
-width:120%;
+width:115%;
 height:auto;
-min-height:120%;
+min-height:115%;
 transform:translate(-50%,-50%);
 object-fit:cover;
-filter:brightness(1.15) contrast(1.15);
+z-index:-2;
+filter:brightness(1.1) contrast(1.1);
 }
 
-/* blurred edges */
-.video-wrap::after{
-content:"";
-position:absolute;
-inset:-20px;
-backdrop-filter:blur(35px);
-background:linear-gradient(rgba(2,6,23,.4),rgba(2,6,23,.6));
-z-index:1;
-}
-
-/* dark overlay */
+/* Dark overlay for readability */
 .overlay{
 position:fixed;
 inset:0;
-background:linear-gradient(rgba(2,6,23,.5),rgba(2,6,23,.7));
+background:linear-gradient(rgba(2,6,23,.45),rgba(2,6,23,.65));
 z-index:-1;
 }
 
 /* ===== LAYOUT ===== */
 .container{
-max-width:1200px;
+max-width:1100px;
 margin:auto;
-padding:30px 20px;
+padding:25px 16px;
 text-align:center;
 }
 
 /* ===== HEADER ===== */
-header{
-margin-bottom:30px;
-}
-
 .logo{
-font-size:44px;
+font-size:40px;
 font-weight:700;
-margin-top:10px;
 }
 
 .slogan{
-font-size:22px;
+font-size:20px;
 font-weight:600;
 color:#b7c8ff;
+margin-bottom:8px;
 }
 
 /* ===== PRICING ===== */
 .pricing{
 display:flex;
-gap:20px;
+gap:18px;
 justify-content:center;
 flex-wrap:wrap;
-margin-top:30px;
+margin-top:20px;
 }
 
 .card{
-background:rgba(10,20,60,.7);
-border-radius:16px;
-padding:18px;
-width:260px;
+background:rgba(10,20,60,.75);
+border-radius:14px;
+padding:16px;
+width:220px;
 border:1px solid rgba(120,170,255,.3);
-box-shadow:0 0 30px rgba(70,120,255,.2);
+box-shadow:0 0 25px rgba(70,120,255,.2);
 transition:.3s;
 }
 
 .card:hover{
 transform:translateY(-6px);
-box-shadow:0 0 60px rgba(80,140,255,.7);
+box-shadow:0 0 50px rgba(80,140,255,.6);
 border-color:#3b82ff;
 }
 
@@ -110,13 +90,13 @@ border:2px solid #3b82ff;
 background:rgba(20,40,90,.85);
 }
 
-.card h3{margin-bottom:10px;font-size:18px}
+.card h3{margin-bottom:8px;font-size:16px}
 
-.price{font-size:26px;font-weight:700;margin-bottom:12px}
+.price{font-size:22px;font-weight:700;margin-bottom:10px}
 
-.features{list-style:none;margin-bottom:15px}
+.features{list-style:none;margin-bottom:12px}
 
-.features li{margin:6px 0;color:#cdd6ff;font-size:14px}
+.features li{margin:4px 0;color:#cdd6ff;font-size:13px}
 
 /* ===== BUTTON ===== */
 .button{
@@ -127,7 +107,7 @@ padding:10px;
 border-radius:10px;
 color:white;
 font-weight:700;
-font-size:14px;
+font-size:13px;
 transition:.3s;
 }
 
@@ -138,16 +118,16 @@ box-shadow:0 0 25px rgba(80,140,255,.8);
 
 /* ===== INSTALL ===== */
 .install{
-margin-top:40px;
+margin-top:28px;
 }
 
-.install h2{font-size:24px;margin-bottom:10px}
+.install h2{font-size:22px;margin-bottom:6px}
 
-.install p{color:#aab;margin-bottom:20px;font-size:14px}
+.install p{color:#aab;margin-bottom:14px;font-size:13px}
 
 .platforms{
 display:flex;
-gap:12px;
+gap:10px;
 justify-content:center;
 flex-wrap:wrap;
 }
@@ -155,12 +135,12 @@ flex-wrap:wrap;
 .platforms a{
 background:#0b1b40;
 border:1px solid #2b7bff;
-padding:10px 16px;
+padding:8px 14px;
 border-radius:10px;
 color:white;
 text-decoration:none;
 font-weight:600;
-font-size:13px;
+font-size:12px;
 transition:.3s;
 }
 
@@ -170,33 +150,28 @@ box-shadow:0 0 20px rgba(80,140,255,.8);
 }
 
 /* ===== FOOTER ===== */
-footer{margin-top:40px;color:#667;font-size:12px}
+footer{margin-top:20px;color:#667;font-size:12px}
 
 /* ===== MOBILE ===== */
 @media(max-width:768px){
-.pricing{gap:10px}
 .card{width:48%}
-.logo{font-size:34px}
+.logo{font-size:32px}
+.slogan{font-size:18px}
 }
 </style>
 </head>
 
 <body>
 
-<div class="video-wrap">
 <video class="video-bg" autoplay muted loop playsinline>
 <source src="planeta.webm" type="video/webm">
 </video>
-</div>
-
 <div class="overlay"></div>
 
 <div class="container">
 
-<header>
 <div class="slogan">Всегда Будь На Связи</div>
 <div class="logo">VPN</div>
-</header>
 
 <div class="pricing">
 
@@ -232,7 +207,7 @@ footer{margin-top:40px;color:#667;font-size:12px}
 <a href="https://apps.apple.com/us/app/v2raytun/id6476628951?platform=ipad">iPad</a>
 </div>
 
-<p style="margin-top:20px;font-size:13px;">
+<p style="margin-top:16px;font-size:12px;">
 Официальный сайт V2RayTun:<br>
 <a href="https://v2raytun.com/" target="_blank" style="color:#4da3ff;">
 https://v2raytun.com
