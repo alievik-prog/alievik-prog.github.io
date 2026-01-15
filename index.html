@@ -4,178 +4,135 @@
 <meta charset="UTF-8">
 <title>VPN</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0;font-family:Inter,sans-serif}
+body{background:#020617;color:white;overflow-x:hidden}
 
-body{
-color:#fff;
-background:black;
-overflow-x:hidden;
+/* Video */
+.video-bg{
+position:fixed;top:50%;left:50%;
+width:115%;height:auto;min-height:115%;
+transform:translate(-50%,-50%);
+object-fit:cover;z-index:-2;
+filter:brightness(1.1) contrast(1.1);
 }
-
-video.bg{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-object-fit:cover;
-z-index:-2;
-}
-
 .overlay{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:linear-gradient(rgba(5,10,40,.75),rgba(5,10,40,.85));
+position:fixed;inset:0;
+background:linear-gradient(rgba(2,6,23,.45),rgba(2,6,23,.65));
 z-index:-1;
 }
 
-.container{
-max-width:1200px;
-margin:auto;
-padding:30px 15px;
-text-align:center;
-}
+.container{max-width:1200px;margin:auto;padding:20px;text-align:center}
+.logo{font-size:40px;font-weight:700}
+.slogan{font-size:20px;color:#b7c8ff;margin-bottom:8px}
 
-h1{font-size:42px;margin:10px 0}
-.slogan{font-size:26px;font-weight:700;margin-top:10px}
-
-.pricing{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:20px;
-margin-top:30px;
-}
-
+.pricing{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-top:20px}
 .card{
 background:rgba(10,20,60,.75);
-border-radius:16px;
-padding:20px;
-width:280px;
-border:1px solid rgba(100,150,255,.4);
-transition:.3s;
+border-radius:14px;padding:16px;width:240px;
+border:1px solid rgba(120,170,255,.3);
+box-shadow:0 0 25px rgba(70,120,255,.2)
 }
-
-.card:hover{
-transform:scale(1.05);
-box-shadow:0 0 25px rgba(100,160,255,.7);
-}
-
-.price{font-size:30px;font-weight:700;margin:10px 0}
-
+.card.highlight{border:2px solid #3b82ff}
+.card h3{font-size:16px}
+.price{font-size:22px;font-weight:700}
+.features{list-style:none;font-size:13px;color:#cdd6ff}
 .button{
-display:block;
-margin-top:15px;
-background:#2b7bff;
-padding:12px;
-border-radius:10px;
-text-decoration:none;
-color:white;
-font-weight:700;
-transition:.3s;
+display:block;background:#3b82ff;padding:10px;border-radius:10px;
+color:white;text-decoration:none;margin-top:10px;cursor:pointer
 }
 
-.button:hover{background:#4da3ff}
-
-.install{
-margin-top:50px;
-}
-
-.platforms{
-display:flex;
-flex-wrap:wrap;
-gap:10px;
-justify-content:center;
-margin-top:15px;
-}
-
+.install{margin-top:30px}
+.platforms{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
 .platforms a{
-padding:10px 14px;
-border-radius:10px;
-background:#0b1b40;
-border:1px solid #2b7bff;
-color:white;
-text-decoration:none;
-font-size:14px;
+background:#0b1b40;border:1px solid #3b82ff;padding:6px 10px;
+border-radius:8px;color:white;font-size:11px;text-decoration:none
 }
 
-.keybox{
-background:rgba(10,20,60,.8);
-border:1px solid #2b7bff;
-border-radius:12px;
-padding:15px;
-margin-top:15px;
-word-break:break-all;
-font-size:12px;
+.lang-bar{display:flex;gap:10px;justify-content:center;margin-top:20px}
+.lang-btn{
+background:#0b1b40;border:1px solid #3b82ff;
+padding:6px 10px;border-radius:8px;font-size:12px;
+cursor:pointer;color:white
 }
+.lang-btn.active{background:#3b82ff}
 
-footer{margin:40px 0;color:#888;font-size:13px}
+footer{margin-top:20px;color:#667;font-size:12px}
+
+/* Modal */
+.modal{
+position:fixed;inset:0;background:rgba(0,0,0,.7);
+display:none;align-items:center;justify-content:center;z-index:10
+}
+.modal-content{
+background:#0b1b40;padding:20px;border-radius:12px;
+max-width:400px;width:90%;text-align:center
+}
+.modal img{width:100%;border-radius:10px}
+.copy-btn{margin-top:10px;background:#3b82ff;border:none;color:white;padding:8px 12px;border-radius:8px;cursor:pointer}
+
+@media(max-width:768px){
+.card{width:48%}
+}
 </style>
 </head>
 
 <body>
 
-<video class="bg" autoplay muted loop playsinline>
-  <source src="planeta.webm" type="video/webm">
+<video class="video-bg" autoplay muted loop playsinline>
+<source src="planeta.webm" type="video/webm">
 </video>
 <div class="overlay"></div>
 
 <div class="container">
 
-<div class="slogan">Всегда будь на связи</div>
-<h1>VPN</h1>
+<div class="slogan" data-t="slogan">Всегда Будь На Связи</div>
+<div class="logo">VPN</div>
 
 <div class="pricing">
 
 <div class="card">
-<h3>Базовый</h3>
+<h3 data-t="basic">Базовый</h3>
 <div class="price">100 ₽ / мес</div>
-<a class="button" href="https://wa.me/966594630551">Купить</a>
+<ul class="features"><li data-t="speed">Высокая скорость</li></ul>
+<a class="button" href="https://wa.me/966594630551" data-t="buy">Купить</a>
 </div>
 
-<div class="card">
-<h3>Премиум</h3>
+<div class="card highlight">
+<h3 data-t="premium">Премиум</h3>
 <div class="price">200 ₽ / мес</div>
-<a class="button" href="https://wa.me/966594630551">Купить</a>
+<ul class="features"><li data-t="maxspeed">Максимальная скорость</li></ul>
+<a class="button" href="https://wa.me/966594630551" data-t="buy">Купить</a>
 </div>
 
 <div class="card">
-<h3>Бесплатный ключ</h3>
+<h3 data-t="free">Бесплатный ключ</h3>
 <div class="price">24 часа</div>
-
-<div class="keybox" id="freeKey">
-vless://5905d0bd-32a0-4b5e-af09-cf800845b99f@171.22.30.27:344?type=tcp&encryption=none&security=reality&pbk=YT8-PMUMKvDA6wpho3YlMqk49kZH6EFT7O5lmdRXbHE&fp=chrome&sni=www.yandex.ru&sid=1124&spx=%2F&flow=xtls-rprx-vision#NLD
-</div>
-
-<a class="button" onclick="navigator.clipboard.writeText(document.getElementById('freeKey').innerText)">Скопировать ключ</a>
-<a class="button" href="QR.png" target="_blank">Открыть QR-код</a>
-
+<ul class="features"><li data-t="freeText">Базовый доступ</li></ul>
+<div class="button" onclick="copyFreeKey()" data-t="get">Скопировать ключ</div>
+<div class="button" onclick="openQR()">QR-код</div>
 </div>
 
 <div class="card">
-<h3>Как активировать</h3>
-<div class="keybox" style="text-align:left">
-1. Скопируйте ключ<br>
-2. Откройте v2raytun<br>
-3. Нажмите «+»<br>
-4. Вставить из буфера<br>
-5. ОК → Разрешить<br>
-6. Подключить<br>
-7. Статус «Подключено»
-</div>
+<h3 data-t="instruction">Инструкция</h3>
+<ul class="features" style="text-align:left;font-size:12px">
+<li>1. Скопируйте ключ</li>
+<li>2. Откройте V2RayTun</li>
+<li>3. Нажмите «+»</li>
+<li>4. Вставить из буфера</li>
+<li>5. OK → Разрешить</li>
+<li>6. Подключить</li>
+<li>7. Статус «Подключено»</li>
+</ul>
 </div>
 
 </div>
 
 <div class="install">
-<h2>Установка V2RayTun</h2>
+<h2 data-t="install">Установка</h2>
+<p data-t="installText">Установите V2RayTun для активации ключа</p>
 
 <div class="platforms">
 <a href="https://play.google.com/store/apps/details?id=com.v2raytun.android">Android</a>
@@ -185,16 +142,59 @@ vless://5905d0bd-32a0-4b5e-af09-cf800845b99f@171.22.30.27:344?type=tcp&encryptio
 <a href="https://apps.apple.com/us/app/v2raytun/id6476628951?platform=ipad">iPad</a>
 </div>
 
-<p style="margin-top:15px;font-size:14px;">
-Официальный сайт:
-<a href="https://v2raytun.com/" style="color:#4da3ff">v2raytun.com</a>
+<p style="margin-top:10px;font-size:12px;">
+Официальный сайт V2RayTun:
+<a href="https://v2raytun.com" style="color:#4da3ff">https://v2raytun.com</a>
 </p>
+</div>
 
+<div class="lang-bar">
+<div class="lang-btn active" onclick="setLang('ru')">RU</div>
+<div class="lang-btn" onclick="setLang('en')">EN</div>
+<div class="lang-btn" onclick="setLang('ar')">AR</div>
+<div class="lang-btn" onclick="setLang('hi')">HI</div>
+<div class="lang-btn" onclick="setLang('zh')">ZH</div>
 </div>
 
 <footer>© 2026 VPN</footer>
-
 </div>
+
+<!-- QR Modal -->
+<div class="modal" id="qrModal">
+<div class="modal-content">
+<h3>QR-код</h3>
+<img src="QR.png">
+<button class="copy-btn" onclick="closeQR()">Закрыть</button>
+</div>
+</div>
+
+<script>
+const FREE_KEY="vless://5905d0bd-32a0-4b5e-af09-cf800845b99f@171.22.30.27:344?type=tcp&encryption=none&security=reality&pbk=YT8-PMUMKvDA6wpho3YlMqk49kZH6EFT7O5lmdRXbHE&fp=chrome&sni=www.yandex.ru&sid=1124&spx=%2F&flow=xtls-rprx-vision#Нидерланды-NLD";
+
+function copyFreeKey(){
+navigator.clipboard.writeText(FREE_KEY);
+alert("Ключ скопирован");
+}
+
+function openQR(){document.getElementById("qrModal").style.display="flex"}
+function closeQR(){document.getElementById("qrModal").style.display="none"}
+</script>
+
+<!-- языки остаются как у тебя -->
+<script>
+const dict={
+ru:{slogan:"Всегда Будь На Связи",basic:"Базовый",premium:"Премиум",speed:"Высокая скорость",maxspeed:"Максимальная скорость",buy:"Купить",install:"Установка",installText:"Установите V2RayTun для активации ключа",free:"Бесплатный ключ",freeText:"Базовый доступ",get:"Скопировать ключ",instruction:"Инструкция"},
+en:{slogan:"Always stay connected",basic:"Basic",premium:"Premium",speed:"High speed",maxspeed:"Maximum speed",buy:"Buy",install:"Installation",installText:"Install V2RayTun to activate key",free:"Free key",freeText:"Basic access",get:"Copy key",instruction:"Instruction"},
+ar:{slogan:"ابقَ متصلاً دائمًا",basic:"أساسي",premium:"مميز",speed:"سرعة عالية",maxspeed:"أقصى سرعة",buy:"شراء",install:"التثبيت",installText:"ثبت V2RayTun لتفعيل المفتاح",free:"مفتاح مجاني",freeText:"وصول أساسي",get:"نسخ",instruction:"التعليمات"},
+hi:{slogan:"हमेशा जुड़े रहें",basic:"बेसिक",premium:"प्रीमियम",speed:"तेज़ गति",maxspeed:"अधिकतम गति",buy:"खरीदें",install:"इंस्टॉल",installText:"कुंजी सक्रिय करने के लिए V2RayTun इंस्टॉल करें",free:"मुफ़्त कुंजी",freeText:"बेसिक एक्सेस",get:"कॉपी करें",instruction:"निर्देश"},
+zh:{slogan:"始终保持连接",basic:"基础版",premium:"高级版",speed:"高速",maxspeed:"最高速度",buy:"购买",install:"安装",installText:"安装 V2RayTun 以激活密钥",free:"免费密钥",freeText:"基础访问",get:"复制",instruction:"说明"}
+}
+function setLang(l){
+document.querySelectorAll("[data-t]").forEach(el=>{
+el.textContent=dict[l][el.getAttribute("data-t")]
+})
+}
+</script>
 
 </body>
 </html>
