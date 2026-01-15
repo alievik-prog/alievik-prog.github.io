@@ -12,20 +12,21 @@ body{
 background:
 linear-gradient(rgba(3,8,30,.93),rgba(3,8,30,.93)),
 url("https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Russia_blank_map.svg/2000px-Russia_blank_map.svg.png");
-background-size:cover;background-position:center;
-color:white;height:100vh;overflow:hidden;
+background-size:cover;
+background-position:center;
+color:white;
+min-height:100vh;
 }
 
 .app{
 max-width:390px;
-height:100vh;
 margin:auto;
 padding:8px;
 display:flex;
 flex-direction:column;
 }
 
-header{text-align:center;margin-bottom:4px}
+header{text-align:center;margin-bottom:6px}
 header h1{font-size:22px;font-weight:600}
 header .vpn{font-size:28px;font-weight:800;color:#4dc2ff}
 
@@ -38,7 +39,7 @@ border-radius:10px;
 padding:6px;
 border:1px solid rgba(120,170,255,.3);
 text-align:center;
-height:125px;
+min-height:110px;
 display:flex;
 flex-direction:column;
 }
@@ -62,10 +63,13 @@ font-weight:700;
 .wide{
 margin-top:6px;
 width:100%;
-height:125px;
-display:flex;
-flex-direction:column;
+background:rgba(15,30,80,.75);
+border-radius:10px;
+padding:6px;
+border:1px solid rgba(120,170,255,.3);
 }
+
+.wide h3{font-size:12px;margin-bottom:4px}
 
 .wide input{
 width:100%;
@@ -85,14 +89,22 @@ background:#ff2d55;
 color:white;
 font-size:11px;
 font-weight:700;
+width:100%;
 }
 
 .install{
 text-align:center;
-margin-top:auto;
+margin-top:8px;
 }
-.install h4{font-size:11px;color:#9fb6ff;margin-bottom:2px}
-.platforms{display:flex;gap:6px;justify-content:center}
+
+.install h4{font-size:11px;color:#9fb6ff;margin-bottom:4px}
+
+.platforms{
+display:flex;
+gap:6px;
+justify-content:center;
+}
+
 .platforms a{
 font-size:10px;
 padding:5px 8px;
@@ -136,8 +148,8 @@ text-decoration:none;
 </div>
 </div>
 
-<div class="card wide">
-<h3>Оставить заявку</h3>
+<div class="wide">
+<h3>Оставить заявку на подключение</h3>
 <input placeholder="Email">
 <input placeholder="WhatsApp">
 <input placeholder="Telegram">
