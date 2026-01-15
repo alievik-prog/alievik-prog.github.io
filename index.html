@@ -6,9 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-<script>
-(function(){ emailjs.init("PAeep2bq3CQkQ6J-g"); })();
-</script>
+<script>(function(){ emailjs.init("PAeep2bq3CQkQ6J-g"); })();</script>
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0;font-family:Inter,sans-serif}
@@ -42,7 +40,21 @@ box-shadow:0 0 50px rgba(80,140,255,.3);text-align:center
 .form-box button{width:100%;padding:14px;background:#2b7bff;border:none;border-radius:12px;font-weight:700;color:white;cursor:pointer}
 .form-box button:hover{background:#4dc2ff}
 
-.container{text-align:center;margin-top:120px}
+.container{max-width:1200px;margin:auto;padding:40px 20px;text-align:center}
+header{display:flex;justify-content:center;margin-bottom:70px}
+.slogan{font-size:28px;font-weight:700}
+h1{font-size:52px;margin-bottom:10px}
+.subtitle{color:#9fb6ff;margin-bottom:60px}
+.pricing{display:flex;gap:40px;justify-content:center;flex-wrap:wrap}
+.card{background:rgba(10,20,60,.65);border-radius:18px;padding:35px;width:300px;border:1px solid rgba(120,170,255,.3)}
+.card.highlight{border:2px solid #2b7bff}
+.price{font-size:38px;font-weight:700;margin-bottom:25px}
+.button{display:block;background:#2b7bff;padding:14px;border-radius:12px;color:white;text-decoration:none;font-weight:700}
+.button:hover{background:#4dc2ff}
+.install{margin-top:90px}
+.platforms{display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
+.platforms a{background:#0b1b40;border:1px solid #2b7bff;padding:18px 28px;border-radius:14px;color:white;text-decoration:none;font-weight:600}
+.platforms a:hover{background:#2b7bff}
 </style>
 </head>
 
@@ -53,7 +65,7 @@ box-shadow:0 0 50px rgba(80,140,255,.3);text-align:center
 <div id="lead" class="screen">
   <div class="form-box">
     <h2>Оставьте заявку на подключение</h2>
-    <p>Укажите <b>любой удобный способ связи</b> — достаточно одного</p>
+    <p>Укажите любой удобный способ связи — достаточно одного</p>
     <input id="email" placeholder="Email">
     <input id="whatsapp" placeholder="WhatsApp">
     <input id="telegram" placeholder="Telegram (@username)">
@@ -62,10 +74,33 @@ box-shadow:0 0 50px rgba(80,140,255,.3);text-align:center
 </div>
 
 <div id="vpn" class="screen">
-  <div class="container">
-    <h1>VPN</h1>
-    <p>Ваш VPN доступ</p>
-  </div>
+<div class="container">
+<header><div class="slogan">Всегда будь на связи.</div></header>
+<h1>VPN</h1>
+<p class="subtitle">Безопасный VPN-доступ через V2RayTun</p>
+
+<div class="pricing">
+<div class="card">
+<h3>VPN Базовый</h3>
+<div class="price">100 ₽ / мес</div>
+<a class="button" href="https://wa.me/966594630551">Купить</a>
+</div>
+<div class="card highlight">
+<h3>VPN Премиум</h3>
+<div class="price">200 ₽ / мес</div>
+<a class="button" href="https://wa.me/966594630551">Купить</a>
+</div>
+</div>
+
+<div class="install">
+<h2>Установка</h2>
+<div class="platforms">
+<a href="https://play.google.com/store/apps/details?id=com.v2raytun.android">Android</a>
+<a href="https://apps.apple.com/us/app/v2raytun/id6476628951">iPhone</a>
+<a href="https://storage.v2raytun.com/v2RayTun_Setup.exe">Windows</a>
+</div>
+</div>
+</div>
 </div>
 
 <div class="bottom-bar">
@@ -74,29 +109,17 @@ box-shadow:0 0 50px rgba(80,140,255,.3);text-align:center
 </div>
 
 <script>
-const BOT_TOKEN = "ТВОЙ_ТОКЕН";
-const CHAT_ID = "-1003649594718";
-
-function hideAll(){
-document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"))
-}
-
+const BOT_TOKEN="ТВОЙ_ТОКЕН";
+const CHAT_ID="-1003649594718";
+function hideAll(){document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"))}
 function showVPN(){hideAll();document.getElementById("vpn").classList.add("active")}
 function showLead(){hideAll();document.getElementById("lead").classList.add("active")}
-
 function sendLead(){
-const email=document.getElementById("email").value;
-const whatsapp=document.getElementById("whatsapp").value;
-const telegram=document.getElementById("telegram").value;
-
-const text=`Новая заявка\nEmail: ${email}\nWhatsApp: ${whatsapp}\nTelegram: ${telegram}`;
-
+const email=email.value, whatsapp=whatsapp.value, telegram=telegram.value;
 fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,{
 method:"POST",headers:{"Content-Type":"application/json"},
-body:JSON.stringify({chat_id:CHAT_ID,text:text})
+body:JSON.stringify({chat_id:CHAT_ID,text:`Новая заявка\n${email}\n${whatsapp}\n${telegram}`})
 });
-
-emailjs.send("service_3qgsyni","lead_form",{email,whatsapp,telegram,date:new Date().toLocaleString()});
 alert("Заявка отправлена");
 }
 </script>
