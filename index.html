@@ -9,20 +9,13 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0;font-family:Inter,sans-serif}
 
-html,body{
-height:100%;
-}
+html,body{height:100%;}
+body{color:white;background:#000;}
 
-body{
-color:white;
-overflow-x:hidden;
-}
-
-/* === Video Background === */
+/* === VIDEO BACKGROUND === */
 .hero{
 position:relative;
 min-height:100vh;
-width:100%;
 overflow:hidden;
 }
 
@@ -37,168 +30,110 @@ object-fit:cover;
 z-index:-2;
 }
 
-/* Dark overlay for contrast */
 .hero::after{
 content:"";
 position:absolute;
 inset:0;
-background:linear-gradient(180deg, rgba(3,8,30,.45), rgba(3,8,30,.75));
+background:linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,.75));
 z-index:-1;
 }
 
-/* === Content === */
+/* === CONTENT === */
 .container{
 max-width:1200px;
 margin:auto;
-padding:40px 20px 80px;
+padding:30px 20px 60px;
 text-align:center;
-position:relative;
-z-index:1;
 }
 
-header{
-display:flex;
-justify-content:center;
-margin-bottom:40px;
-}
+/* HEADERS */
+.logo{font-size:32px;font-weight:700;margin-bottom:10px;}
+.slogan{font-size:24px;font-weight:700;margin-bottom:10px;}
+h1{font-size:48px;margin-bottom:10px;}
+.subtitle{color:#9fb6ff;margin-bottom:40px;}
 
-.logo{
-font-size:32px;
-font-weight:700;
-letter-spacing:.1em;
-}
-
-.slogan{
-font-size:28px;
-font-weight:700;
-margin-bottom:12px;
-}
-
-h1{
-font-size:60px;
-margin-bottom:10px;
-}
-
-.subtitle{
-color:#9fb6ff;
-margin-bottom:60px;
-}
-
-/* === Pricing === */
+/* PRICING */
 .pricing{
 display:flex;
-gap:40px;
+gap:30px;
 justify-content:center;
 flex-wrap:wrap;
 }
 
 .card{
-background:rgba(10,20,60,.7);
-border-radius:18px;
-padding:36px 34px 34px;
-width:300px;
+background:rgba(10,20,60,.75);
+border-radius:16px;
+padding:28px;
+width:280px;
 border:1px solid rgba(120,170,255,.35);
-box-shadow:0 0 40px rgba(70,120,255,.12);
-transition:.35s ease;
+box-shadow:0 0 30px rgba(70,120,255,.2);
 display:flex;
 flex-direction:column;
-min-height:360px;
+transition:.3s;
 }
 
 .card:hover{
-transform:translateY(-10px) scale(1.02);
+transform:translateY(-8px);
 background:rgba(20,40,90,.95);
-box-shadow:0 0 80px rgba(80,140,255,.45);
-border-color:#4da3ff;
+box-shadow:0 0 50px rgba(80,140,255,.5);
 }
 
-.card.highlight{
-border:2px solid #2b7bff;
-background:rgba(20,40,90,.9);
-}
+.card.highlight{border:2px solid #4da3ff;}
 
-.card h3{
-margin-bottom:20px;
-font-size:24px;
-}
+.price{font-size:32px;font-weight:700;margin:15px 0;}
 
-.price{
-font-size:40px;
-font-weight:700;
-margin-bottom:24px;
-}
+.features{list-style:none;margin-bottom:20px;}
+.features li{margin:8px 0;}
 
-.features{
-list-style:none;
-margin-bottom:30px;
-}
-
-.features li{
-margin:12px 0;
-color:#dbe5ff;
-}
-
-/* === Buttons === */
 .button{
 margin-top:auto;
-text-decoration:none;
 background:linear-gradient(90deg,#1a6dff,#2fa4ff);
-padding:16px;
-border-radius:12px;
+padding:14px;
+border-radius:10px;
 color:white;
+text-decoration:none;
 font-weight:700;
-transition:.25s ease;
+transition:.2s;
 }
 
 .button:hover{
-background:linear-gradient(90deg,#2fa4ff,#5bb6ff);
-box-shadow:0 0 25px rgba(80,140,255,.9);
-transform:translateY(-2px);
+box-shadow:0 0 20px rgba(80,150,255,.9);
+transform:scale(1.05);
 }
 
-/* === Install === */
-.install{
-margin-top:90px;
-}
-
-.install h2{
-font-size:34px;
-margin-bottom:16px;
-}
-
-.install p{
-color:#aab;
-margin-bottom:40px;
-}
+/* INSTALL */
+.install{margin-top:60px;}
+.install h2{font-size:28px;margin-bottom:10px;}
+.install p{color:#aab;margin-bottom:25px;}
 
 .platforms{
 display:flex;
-gap:20px;
+gap:12px;
 justify-content:center;
 flex-wrap:wrap;
 }
 
 .platforms a{
+padding:12px 18px;
+border-radius:10px;
 background:#0b1b40;
 border:1px solid #2b7bff;
-padding:18px 28px;
-border-radius:14px;
 color:white;
 text-decoration:none;
 font-weight:600;
-box-shadow:0 0 20px rgba(50,100,255,.25);
-transition:.25s ease;
+transition:.2s;
 }
 
 .platforms a:hover{
-background:#102b6b;
-box-shadow:0 0 35px rgba(90,150,255,.9);
-transform:translateY(-4px);
+background:#2b7bff;
+box-shadow:0 0 20px rgba(90,150,255,.9);
 }
 
-.footer{
-margin-top:100px;
-color:#778;
+/* MOBILE */
+@media(max-width:600px){
+h1{font-size:36px}
+.slogan{font-size:20px}
+.card{width:100%}
 }
 </style>
 </head>
@@ -206,65 +141,47 @@ color:#778;
 <body>
 
 <div class="hero">
-  <video autoplay muted loop playsinline>
-    <source src="planet.mp4" type="video/mp4">
-  </video>
+<video autoplay muted loop playsinline>
+  <source src="planet.mp4" type="video/mp4">
+</video>
 
-  <div class="container">
+<div class="container">
 
-    <header>
-      <div class="logo">VPN</div>
-    </header>
+<div class="logo">VPN</div>
+<div class="slogan">Всегда Будь На Связи</div>
+<h1>VPN</h1>
+<p class="subtitle">Глобальная защищённая сеть без ограничений</p>
 
-    <div class="slogan">Всегда Будь На Связи</div>
-    <h1>VPN</h1>
-    <p class="subtitle">Глобальная защищённая сеть без ограничений</p>
+<div class="pricing">
+<div class="card">
+<h3>VPN Базовый</h3>
+<div class="price">100 ₽ / мес</div>
+<ul class="features"><li>Высокая скорость</li></ul>
+<a class="button" href="https://wa.me/966594630551">Купить</a>
+</div>
 
-    <div class="pricing">
+<div class="card highlight">
+<h3>VPN Премиум</h3>
+<div class="price">200 ₽ / мес</div>
+<ul class="features"><li>Максимальная скорость</li></ul>
+<a class="button" href="https://wa.me/966594630551">Купить</a>
+</div>
+</div>
 
-      <div class="card">
-        <h3>VPN Базовый</h3>
-        <div class="price">100 ₽ / мес</div>
-        <ul class="features">
-          <li>Высокая скорость</li>
-        </ul>
-        <a class="button" href="https://wa.me/966594630551">Купить</a>
-      </div>
+<div class="install">
+<h2>Установка</h2>
+<p>Установите V2RayTun для активации ключа</p>
 
-      <div class="card highlight">
-        <h3>VPN Премиум</h3>
-        <div class="price">200 ₽ / мес</div>
-        <ul class="features">
-          <li>Максимальная скорость</li>
-        </ul>
-        <a class="button" href="https://wa.me/966594630551">Купить</a>
-      </div>
+<div class="platforms">
+<a href="https://play.google.com/store/apps/details?id=com.v2raytun.android">Android</a>
+<a href="https://apps.apple.com/us/app/v2raytun/id6476628951">iPhone</a>
+<a href="https://storage.v2raytun.com/v2RayTun_Setup.exe">Windows</a>
+<a href="https://apps.apple.com/us/app/v2raytun/id6476628951?platform=mac">MacOS</a>
+<a href="https://apps.apple.com/us/app/v2raytun/id6476628951?platform=ipad">iPad</a>
+</div>
+</div>
 
-    </div>
-
-    <div class="install">
-      <h2>Установка</h2>
-      <p>Установите V2RayTun для активации ключа</p>
-
-      <div class="platforms">
-        <a href="https://play.google.com/store/apps/details?id=com.v2raytun.android">Android</a>
-        <a href="https://apps.apple.com/us/app/v2raytun/id6476628951">iPhone</a>
-        <a href="https://storage.v2raytun.com/v2RayTun_Setup.exe">Windows</a>
-        <a href="https://apps.apple.com/us/app/v2raytun/id6476628951?platform=mac">macOS</a>
-        <a href="https://apps.apple.com/us/app/v2raytun/id6476628951?platform=ipad">iPad</a>
-      </div>
-
-      <p style="margin-top:36px;">
-        Официальный сайт V2RayTun:
-        <a href="https://v2raytun.com/" target="_blank" style="color:#4da3ff;">
-          https://v2raytun.com
-        </a>
-      </p>
-    </div>
-
-    <div class="footer">© 2026 VPN</div>
-
-  </div>
+</div>
 </div>
 
 </body>
