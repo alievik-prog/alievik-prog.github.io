@@ -2,137 +2,105 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<title>Alievik VPN — Обход блокировок</title>
+<title>Alievik VPN — Обход и защита соединения</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
-* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
+*{box-sizing:border-box;margin:0;padding:0;font-family:Inter,sans-serif}
 
-body {
-  background: radial-gradient(circle at top, #0b1b33, #020814);
-  color: white;
-  min-height: 100vh;
-  background-image:
-    linear-gradient(rgba(0,0,40,.85), rgba(0,0,40,.95)),
-    url("https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Russia_blank_map.svg/2000px-Russia_blank_map.svg.png");
-  background-size: cover;
-  background-position: center;
+body{
+background:
+linear-gradient(rgba(3,8,30,.92),rgba(3,8,30,.96)),
+url("https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Russia_blank_map.svg/2000px-Russia_blank_map.svg.png");
+background-size:cover;
+background-position:center;
+color:#fff;
+min-height:100vh
 }
 
-.container {
-  max-width: 1100px;
-  margin: auto;
-  padding: 40px 20px;
-  text-align: center;
+.container{max-width:1200px;margin:auto;padding:40px 20px;text-align:center}
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:70px
 }
 
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 60px;
+.logo{font-size:22px;font-weight:700;color:#4da3ff}
+
+.slogan{font-size:28px;font-weight:700}
+
+h1{font-size:52px;margin-bottom:10px}
+
+.subtitle{color:#9fb6ff;margin-bottom:60px}
+
+.pricing{
+display:flex;
+gap:40px;
+justify-content:center;
+flex-wrap:wrap
 }
 
-.logo {
-  font-size: 22px;
-  font-weight: 700;
-  color: #4da3ff;
+.card{
+background:rgba(10,20,60,.65);
+border-radius:18px;
+padding:35px;
+width:300px;
+border:1px solid rgba(120,170,255,.3);
+box-shadow:0 0 60px rgba(70,120,255,.15)
 }
 
-.slogan {
-  font-size: 28px;
-  font-weight: 700;
+.card.highlight{
+border:2px solid #2b7bff;
+background:rgba(20,40,90,.9)
 }
 
-h1 {
-  font-size: 48px;
-  margin-bottom: 10px;
+.card h3{margin-bottom:20px;font-size:24px}
+
+.price{font-size:38px;font-weight:700;margin-bottom:25px}
+
+.features{text-align:left;margin-bottom:30px}
+
+.features li{margin:10px 0}
+
+.button{
+display:block;
+text-decoration:none;
+background:linear-gradient(90deg,#1a6dff,#2fa4ff);
+padding:16px;
+border-radius:12px;
+color:white;
+font-weight:700
 }
 
-.subtitle {
-  color: #9fb6ff;
-  margin-bottom: 50px;
+.install{margin-top:90px}
+
+.install h2{font-size:32px;margin-bottom:10px}
+
+.install p{color:#aab;margin-bottom:30px}
+
+.platforms{
+display:flex;
+gap:20px;
+justify-content:center;
+flex-wrap:wrap
 }
 
-.pricing {
-  display: flex;
-  gap: 30px;
-  justify-content: center;
-  flex-wrap: wrap;
+.platforms a{
+background:#0b1b40;
+border:1px solid #2b7bff;
+padding:18px 28px;
+border-radius:14px;
+color:white;
+text-decoration:none;
+font-weight:600;
+box-shadow:0 0 25px rgba(50,100,255,.2)
 }
 
-.card {
-  background: rgba(10,20,60,0.6);
-  border-radius: 15px;
-  padding: 30px;
-  width: 280px;
-  border: 1px solid rgba(100,150,255,0.3);
-  box-shadow: 0 0 40px rgba(50,100,255,0.15);
-}
-
-.card.highlight {
-  border: 2px solid #1a6dff;
-  background: rgba(20,40,90,0.85);
-}
-
-.card h3 {
-  margin-bottom: 15px;
-}
-
-.price {
-  font-size: 36px;
-  font-weight: 700;
-  margin-bottom: 20px;
-}
-
-.features {
-  text-align: left;
-  margin-bottom: 25px;
-}
-
-.features li {
-  margin: 8px 0;
-}
-
-.button {
-  display: block;
-  text-decoration: none;
-  background: linear-gradient(90deg,#1a6dff,#2fa4ff);
-  padding: 14px;
-  border-radius: 10px;
-  color: white;
-  font-weight: 600;
-}
-
-.install {
-  margin-top: 70px;
-}
-
-.install h2 {
-  margin-bottom: 10px;
-}
-
-.install p {
-  color: #aab;
-  margin-bottom: 20px;
-}
-
-.install a {
-  display: inline-block;
-  background: #1a6dff;
-  padding: 15px 25px;
-  border-radius: 10px;
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-}
-
-footer {
-  margin-top: 80px;
-  color: #556;
-}
+footer{margin-top:100px;color:#556}
 </style>
 </head>
 
@@ -141,49 +109,64 @@ footer {
 <div class="container">
 
 <header>
-  <div class="logo">ОБХОД</div>
-  <div class="slogan">Будь на связи. Всегда будь на связи.</div>
+<div class="logo">ОБХОД</div>
+<div class="slogan">Будь на связи. Всегда будь на связи.</div>
 </header>
 
 <h1>Alievik VPN</h1>
-<p class="subtitle">VPN-доступ для V2RayTun. Работает на Android, iPhone, Windows и роутерах.</p>
+<p class="subtitle">Безопасный VPN-доступ через V2RayTun для Android, iPhone, Windows и роутеров</p>
 
 <div class="pricing">
 
-  <div class="card">
-    <h3>VPN Базовый</h3>
-    <div class="price">100 ₽ / мес</div>
-    <ul class="features">
-      <li>Высокая скорость</li>
-      <li>V2RayTun</li>
-      <li>Все устройства</li>
-      <li>Поддержка</li>
-    </ul>
-    <a class="button" href="https://wa.me/996594630551">Купить</a>
-  </div>
+<div class="card">
+<h3>VPN Базовый</h3>
+<div class="price">100 ₽ / мес</div>
+<ul class="features">
+<li>Высокая скорость</li>
+<li>V2RayTun</li>
+<li>Все устройства</li>
+<li>Поддержка</li>
+</ul>
+<a class="button" href="https://wa.me/966594630551">Купить</a>
+</div>
 
-  <div class="card highlight">
-    <h3>VPN Премиум</h3>
-    <div class="price">200 ₽ / мес</div>
-    <ul class="features">
-      <li>Максимальная скорость</li>
-      <li>Без ограничений</li>
-      <li>V2RayTun</li>
-      <li>Приоритетная поддержка</li>
-    </ul>
-    <a class="button" href="https://wa.me/996594630551">Купить</a>
-  </div>
+<div class="card highlight">
+<h3>VPN Премиум</h3>
+<div class="price">200 ₽ / мес</div>
+<ul class="features">
+<li>Максимальная скорость</li>
+<li>Без ограничений</li>
+<li>V2RayTun</li>
+<li>Приоритетная поддержка</li>
+</ul>
+<a class="button" href="https://wa.me/966594630551">Купить</a>
+</div>
 
 </div>
 
 <div class="install">
-  <h2>Установка</h2>
-  <p>Установите приложение для активации ключа</p>
-  <a href="https://play.google.com/store/apps/details?id=com.v2raytun.android">Скачать V2RayTun</a>
+<h2>Установка</h2>
+<p>Установите приложение для активации ключа</p>
+
+<div class="platforms">
+<a href="https://play.google.com/store/apps/details?id=com.v2raytun.android">Android</a>
+<a href="https://apps.apple.com/us/app/v2raytun/id6476628951">iPhone</a>
+<a href="https://storage.v2raytun.com/v2RayTun_Setup.exe">Windows</a>
+<a href="https://apps.apple.com/us/app/v2raytun/id6476628951?platform=mac">Mac</a>
+<a href="https://apps.apple.com/us/app/v2raytun/id6476628951?platform=ipad">iPad</a>
+</div>
+
+<p style="margin-top:30px;">
+Официальный сайт V2RayTun:
+<a href="https://v2raytun.com/" target="_blank" style="color:#4da3ff;">
+https://v2raytun.com
+</a>
+</p>
+
 </div>
 
 <footer>
-  © 2026 Alievik VPN
+© 2026 Alievik VPN
 </footer>
 
 </div>
