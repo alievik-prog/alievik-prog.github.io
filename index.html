@@ -22,33 +22,34 @@ display:flex;flex-direction:column;justify-content:space-between
 }
 
 header{text-align:center}
-header h1{font-size:32px;font-weight:700}
+header h1{font-size:34px;font-weight:700}
 header p{color:#9fb6ff;font-size:14px}
+header .vpn{font-size:22px;font-weight:700;margin-top:4px;color:#4dc2ff}
 
-.cards{display:flex;gap:12px;margin-top:12px}
+.cards{display:flex;gap:10px;margin-top:14px}
 .card{
-flex:1;background:rgba(15,30,80,.7);border-radius:14px;padding:14px;
-border:1px solid rgba(120,170,255,.3)
+flex:1;background:rgba(15,30,80,.75);border-radius:14px;padding:12px;
+border:1px solid rgba(120,170,255,.3);text-align:center
 }
-.card h3{font-size:16px;margin-bottom:6px}
-.price{font-size:26px;font-weight:700;color:#4dc2ff}
-.card ul{font-size:12px;margin-top:6px;color:#cbd7ff}
+.card h3{font-size:15px;margin-bottom:4px}
+.price{font-size:22px;font-weight:700;color:#4dc2ff}
+.card ul{font-size:11px;margin-top:6px;color:#cbd7ff;list-style:none}
 .card li{margin:4px 0}
 
-.install{text-align:center;margin-top:10px}
+.card.cta{
+background:#2b7bff;border:none;color:white;cursor:pointer
+}
+.card.cta:hover{background:#4dc2ff}
+.card.cta h3{font-size:16px}
+.card.cta .price{font-size:14px;color:white}
+
+.install{text-align:center;margin-top:12px}
 .install h4{font-size:14px;margin-bottom:6px;color:#9fb6ff}
 .platforms{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
 .platforms a{
 font-size:12px;padding:8px 12px;background:#0b1b40;
 border-radius:10px;border:1px solid #2b7bff;color:white;text-decoration:none
 }
-
-.cta{
-margin-top:14px;background:#2b7bff;
-text-align:center;padding:14px;border-radius:16px;
-font-weight:700;font-size:16px;cursor:pointer
-}
-.cta:hover{background:#4dc2ff}
 
 .modal{
 position:fixed;inset:0;background:rgba(0,0,0,.85);
@@ -75,8 +76,9 @@ background:#2b7bff;border:none;border-radius:12px;color:white;font-weight:700
 
 <div class="app">
 <header>
-<h1>VPN</h1>
+<h1>Damadaev</h1>
 <p>Быстрый и безопасный доступ</p>
+<div class="vpn">VPN</div>
 </header>
 
 <div class="cards">
@@ -84,18 +86,31 @@ background:#2b7bff;border:none;border-radius:12px;color:white;font-weight:700
 <h3>Базовый</h3>
 <div class="price">100 ₽</div>
 <ul>
-<li>Высокая скорость</li>
+<li>Скорость до 50 Мбит</li>
 <li>Все устройства</li>
+<li>1 ключ / 1 устройство</li>
 <li>Поддержка</li>
 </ul>
 </div>
+
 <div class="card">
 <h3>Премиум</h3>
 <div class="price">200 ₽</div>
 <ul>
-<li>Максимальная скорость</li>
-<li>Без лимитов</li>
-<li>Приоритет</li>
+<li>Скорость до 200 Мбит</li>
+<li>До 3 устройств</li>
+<li>Все устройства</li>
+<li>Поддержка</li>
+</ul>
+</div>
+
+<div class="card cta" onclick="openForm()">
+<h3>Оставить заявку</h3>
+<div class="price">Подключение</div>
+<ul>
+<li>Быстро</li>
+<li>Без регистрации</li>
+<li>Поддержка</li>
 </ul>
 </div>
 </div>
@@ -109,12 +124,11 @@ background:#2b7bff;border:none;border-radius:12px;color:white;font-weight:700
 </div>
 </div>
 
-<div class="cta" onclick="openForm()">Оставить заявку</div>
 </div>
 
 <div class="modal" id="modal">
 <div class="form">
-<h3>Заявка на подключение</h3>
+<h3>Оставить заявку на подключение</h3>
 <p>Укажите любой удобный способ связи</p>
 <input placeholder="Email">
 <input placeholder="WhatsApp">
